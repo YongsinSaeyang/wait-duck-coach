@@ -17,7 +17,10 @@
     "no-trade-no-proof",
     "costs-matter"
   ],
-  "origin": "教學假設與明列公式推導，沒有使用真實行情。"
+  "origin": "教學假設與明列公式推導，沒有使用真實行情。",
+  "example_kind": "teaching",
+  "experience_record": null,
+  "experiment": null
 }
 ---
 ## 我想釐清的問題

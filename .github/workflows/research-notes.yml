@@ -1,0 +1,72 @@
+name: Validate and publish research notes
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: notes-pages-${{ github.event_name == 'pull_request' && github.ref || 'production' }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    name: Content and regression checks
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: research-notes
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Reject stale or invalid committed content
+        run: python scripts/check.py
+      - name: Run negative and arithmetic regression cases
+        run: python -m unittest discover -s tests -v
+      - name: Verify reproducible execution analysis
+        run: python scripts/execution_demo.py --check
+      - name: Rebuild and check generated pages
+        run: |
+          python scripts/build.py
+          python scripts/check.py
+          git diff --exit-code -- index.html rules.html notes assets/notes.json
+      - name: Stage the complete static site
+        if: github.event_name != 'pull_request'
+        working-directory: .
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import shutil
+          destination = Path('_site')
+          destination.mkdir()
+          for name in ['index.html', 'README.md', 'AGENTS.md', '.nojekyll']:
+              shutil.copy2(name, destination / name)
+          shutil.copytree('research-notes', destination / 'research-notes', ignore=shutil.ignore_patterns('__pycache__'))
+          PY
+      - name: Package the validated site
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+  deploy:
+    name: Publish after validation
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: validate
+    permissions:
+      pages: write
+      id-token: write
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy validated artifact
+        id: deployment
+        uses: actions/deploy-pages@v4

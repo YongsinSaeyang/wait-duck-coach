@@ -9,7 +9,10 @@
   "summary": "用三十到一百二十個字說明這篇要解決的具體問題、讀者能帶走什麼，以及例子的範圍。",
   "sources": ["freqtrade-backtesting"],
   "related": ["no-trade-no-proof"],
-  "origin": "公開文件整理與教學假設。實際使用時請依內容修改。"
+  "origin": "公開文件整理與教學假設。實際使用時請依內容修改。",
+  "example_kind": "teaching",
+  "experience_record": null,
+  "experiment": null
 }
 ---
 ## 我想釐清的問題

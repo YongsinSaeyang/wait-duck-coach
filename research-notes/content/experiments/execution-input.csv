@@ -1,0 +1,4 @@
+case,cash,signal_price,lot_size,liquidity_available,ending_price
+A — 資金不足,100000,120,1000,true,110
+B — 無可用流動性,100000,120,1,false,110
+C — 一股單位,100000,120,1,true,110

@@ -17,7 +17,10 @@
     "dataset-version",
     "drawdown-recovery"
   ],
-  "origin": "延伸本專案證據回查設計的研究方法，例中數字為教學假設。"
+  "origin": "延伸本專案證據回查設計的研究方法，例中數字為教學假設。",
+  "example_kind": "teaching",
+  "experience_record": null,
+  "experiment": null
 }
 ---
 ## 我想釐清的問題

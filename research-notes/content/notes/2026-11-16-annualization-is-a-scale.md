@@ -17,7 +17,10 @@
     "dataset-version",
     "drawdown-recovery"
   ],
-  "origin": "為驗證 AGENTS.md 的新增流程而加入的第七篇筆記。數字由公式推導，屬教學假設。"
+  "origin": "為驗證 AGENTS.md 的新增流程而加入的第七篇筆記。數字由公式推導，屬教學假設。",
+  "example_kind": "teaching",
+  "experience_record": null,
+  "experiment": null
 }
 ---
 ## 我想釐清的問題

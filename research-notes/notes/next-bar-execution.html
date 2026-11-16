@@ -12,14 +12,14 @@
 <h2>一個算得出來的例子</h2>
 <p>教學假設，某交易日收盤才確認短均線高於長均線。當天收盤 100 元，下一交易日開盤 103 元。</p>
 <div class="table-wrap"><table><thead><tr><th scope="col">時點</th><th scope="col">當時知道什麼</th><th scope="col">模擬動作</th></tr></thead><tbody><tr><td>今日收盤後</td><td>完整的今日訊號</td><td>決定下一個可成交時點</td></tr><tr><td>下一交易日開盤</td><td>開盤價 103 元</td><td>用 103 元再加成本試算</td></tr></tbody></table></div>
-<p>這個假設中，100 元和 103 元的差異會影響後續損益。日線回測可以將收盤訊號向後對齊一根，再使用下一根的開盤價。</p>
+<p>這個假設中，100 元和 103 元相差 3 元，這個差異會影響後續損益。日線回測可以將收盤訊號向後對齊一根，再使用下一根的開盤價。</p>
 <h2>我會怎麼檢查</h2>
 <ul><li>逐筆列出訊號完成時間與成交時間。</li><li>檢查指標計算是否引用負向位移，或一次使用整段資料的統計值。</li><li>抽取一段資料手算，確認第一筆交易是在暖身期結束後。</li></ul>
 <h2>還需要注意什麼</h2>
 <p>下一根開盤只是本例採用的成交假設，還要檢查停牌、流動性及價格限制。官方文件對常見資料洩漏的例子有具體說明。 <a href="https://www.freqtrade.io/en/stable/lookahead-analysis/" target="_blank" rel="noopener noreferrer">Freqtrade Lookahead analysis ↗</a></p></article><section class="sources"><h2>這篇的來源</h2><ul><li><span>Freqtrade 官方文件</span><a href="https://www.freqtrade.io/en/stable/lookahead-analysis/" target="_blank" rel="noopener noreferrer">Lookahead analysis ↗</a><small>查閱 2026-11-16</small></li></ul><a class="text-link" href="../content/notes/2026-11-16-next-bar-execution.md">查看原始 Markdown ↗</a></section><section class="related"><div class="eyebrow">KEEP READING</div><h2>也許你會想接著看</h2><div class="note-grid"><article class="note-card" data-note="dataset-version"><div class="card-meta"><span class="category">研究方法</span><span></span></div>
 <h3><a href="../notes/dataset-version.html">同一段回測，資料換了就不一樣？</a></h3><p>一個報酬數字應該帶著資料日期、價格口徑與參數一起保存。把研究條件寫成小卡，之後才能重做相同的比較。</p><div class="tags"><span>資料來源</span><span>版本紀錄</span></div>
 <div class="card-footer"><span>2026.11.16 · 2 分鐘</span><button type="button" class="save" data-save="dataset-version" aria-label="收藏 同一段回測，資料換了就不一樣？" aria-pressed="false">♡ 收藏</button></div></article><article class="note-card" data-note="no-trade-no-proof"><div class="card-meta"><span class="category">回測實作</span><span></span></div>
-<h3><a href="../notes/no-trade-no-proof.html">回測 0%，就代表策略很安全嗎？</a></h3><p>第八週測試讓我發現，0% 有時只是完全沒買進。先核對成交筆數、資金和股數單位，才能理解曲線背後到底發生了什麼。</p><div class="tags"><span>成交條件</span><span>實作觀察</span></div>
-<div class="card-footer"><span>2026.11.16 · 2 分鐘</span><button type="button" class="save" data-save="no-trade-no-proof" aria-label="收藏 回測 0%，就代表策略很安全嗎？" aria-pressed="false">♡ 收藏</button></div></article></div></section></main>
+<h3><a href="../notes/no-trade-no-proof.html">資金不足未進場，和送單未成交差在哪？</a></h3><p>從第八週的零報酬回饋，拆開未建立模擬單、建立後未成交與已成交三條路徑。用公開的教學輸入與重現腳本，比較同樣 0% 的不同原因。</p><div class="tags"><span>成交條件</span><span>實作觀察</span></div>
+<div class="card-footer"><span>2026.11.16 · 4 分鐘</span><button type="button" class="save" data-save="no-trade-no-proof" aria-label="收藏 資金不足未進場，和送單未成交差在哪？" aria-pressed="false">♡ 收藏</button></div></article></div></section><section class="backlinks"><h2>哪些筆記連到這裡</h2><ul><li><a href="dataset-version.html">同一段回測，資料換了就不一樣？</a></li><li><a href="no-trade-no-proof.html">資金不足未進場，和送單未成交差在哪？</a></li></ul></section></main>
 <footer class="site-footer"><span>等等鴨研究筆記 <b>·</b> 先看懂，再往前。</span><a href="../AGENTS.md">閱讀 AGENTS.md ↗</a><span>楊祐宗 · 2026</span></footer>
 <div id="toast" role="status" aria-live="polite"></div></body></html>

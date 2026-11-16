@@ -1,3 +1,9 @@
+> **第九週作業｜等等鴨投資研究筆記庫**
+>
+> [正式網站](https://yongsinsaeyang.github.io/wait-duck-coach/research-notes/) · [完整專案與規則](research-notes/) · [AGENTS.md](research-notes/AGENTS.md)
+>
+> 七篇教學筆記、內容檢查、可重現例子與 AI 接手規則位於 `research-notes/`。
+
 # 等等鴨｜投資決策練習室
 
 一個陪投資新手想清楚的互動網頁：整理需求、把下跌比例換成金額、練習處理模擬訊號，並記下決策理由。

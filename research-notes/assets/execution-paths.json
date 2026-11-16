@@ -1,0 +1,36 @@
+{
+  "basis": "Teaching fixtures; no broker connection, tax or transaction cost.",
+  "schema_version": 1,
+  "results": [
+    {
+      "case": "A — 資金不足",
+      "status": "NO_ENTRY",
+      "order_created": false,
+      "requested_quantity": 0,
+      "filled_quantity": 0,
+      "ending_cash": 100000.0,
+      "ending_equity": 100000.0,
+      "return_pct": 0.0
+    },
+    {
+      "case": "B — 無可用流動性",
+      "status": "UNFILLED",
+      "order_created": true,
+      "requested_quantity": 833,
+      "filled_quantity": 0,
+      "ending_cash": 100000.0,
+      "ending_equity": 100000.0,
+      "return_pct": 0.0
+    },
+    {
+      "case": "C — 一股單位",
+      "status": "FILLED",
+      "order_created": true,
+      "requested_quantity": 833,
+      "filled_quantity": 833,
+      "ending_cash": 40.0,
+      "ending_equity": 91670.0,
+      "return_pct": -8.33
+    }
+  ]
+}

@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import re
 from urllib.parse import urlsplit
+from content_lint import lint_notes
 
 ROOT = Path(__file__).resolve().parents[1]
 CATEGORIES = ('量化入門', '回測實作', '研究方法')
@@ -28,7 +29,7 @@ def load_notes():
         if len(parts) != 2 or not parts[0].startswith('---\n'):
             raise ValueError(f'Missing JSON front matter: {path.name}')
         meta = json.loads(parts[0][4:])
-        required = {'id', 'title', 'date', 'updated', 'category', 'tags', 'summary', 'sources', 'related', 'origin'}
+        required = {'id', 'title', 'date', 'updated', 'category', 'tags', 'summary', 'sources', 'related', 'origin', 'example_kind', 'experience_record', 'experiment'}
         if set(meta) != required:
             raise ValueError(f'Metadata fields differ: {path.name}')
         for key in ('id', 'title', 'date', 'updated', 'category', 'summary', 'origin'):
@@ -60,6 +61,8 @@ def load_notes():
     for note in notes:
         if not set(note['related']) <= set(ids) or note['id'] in note['related']:
             raise ValueError(f"Broken related note: {note['id']}")
+    examples = json.loads((ROOT / 'content/examples.json').read_text())
+    lint_notes(notes, sources, ROOT, examples)
     return notes, sources
 
 
@@ -164,25 +167,37 @@ def card(note, prefix='', number=''):
 
 def render(notes, sources):
     lookup = {n['id']: n for n in notes}
+    incoming = {n['id']: [item for item in notes if n['id'] in item['related']] for n in notes}
     cards = ''.join(card(n, number=f'{i:02d}') for i, n in enumerate(notes, 1))
     filters = ''.join(f'<button type="button" data-category="{c}" aria-pressed="false">{c}</button>' for c in CATEGORIES)
     home = f'''<main id="main" class="wrap"><section class="hero"><div class="hero-copy"><div class="eyebrow"><span class="dot"></span> 一個慢慢長大的投資研究筆記庫</div>
 <h1>讓每個「為什麼」，<br>都有一張<span>查得到的筆記。</span></h1><p>量化、回測、資料與那些踩過的坑。<br>陪你把看起來很懂的數字，變成自己真的理解的事。</p>
 <div class="hero-actions"><a class="primary" href="#library">從一篇筆記開始 <span>↘</span></a><a class="text-link" href="rules.html">這個筆記庫怎麼長大？ →</a></div>
 <div class="hero-facts"><span><b>{len(notes):02d}</b> 篇研究筆記</span><span><b>03</b> 個閱讀方向</span><span><b>01</b> 套可重用規則</span></div></div>
-<aside class="hero-board"><span class="board-label">DUCK'S FIELD NOTES <span>✧</span></span><img class="hero-duck" src="assets/duck.svg" alt="抱著筆記本的等等鴨"><div class="sticky"><span class="tiny">今天先想清楚一件事</span><strong>0% 報酬，<br>真的安全嗎？</strong><a href="notes/no-trade-no-proof.html">看看這次踩過的坑 →</a></div><span class="board-footer">一頁一頁，把自己的判斷留下來。</span></aside></section>
+<aside class="hero-board"><span class="board-label">DUCK'S FIELD NOTES <span>✧</span></span><img class="hero-duck" src="assets/duck.svg" alt="抱著筆記本的等等鴨"><div class="sticky"><span class="tiny">今天先想清楚一件事</span><strong>0% 報酬，<br>真的安全嗎？</strong><a href="notes/no-trade-no-proof.html">從「未進場」開始查 →</a></div><span class="board-footer">一頁一頁，把自己的判斷留下來。</span></aside></section>
 <section id="library" class="library"><div class="section-title"><div><div class="eyebrow">THE NOTEBOOK</div><h2>選一個問題，慢慢讀。</h2></div><p>每篇都有例子、檢查步驟和來源。</p></div>
 <div class="library-layout"><aside class="library-sidebar"><label class="search-label" for="search">搜尋筆記</label><div class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="例如 回撤、費用、資料" autocomplete="off"></div><fieldset class="filters"><legend>閱讀方向</legend><button type="button" data-category="all" aria-pressed="true">全部筆記 <span>{len(notes)}</span></button>{filters}<button type="button" data-category="saved" aria-pressed="false">♡ 我的收藏</button></fieldset>
 <div class="sidebar-note"><span>等等鴨的小提醒</span><p>先看這個數字怎麼來，<br>再看它漂不漂亮。</p></div><a class="rule-link" href="rules.html">打開 AI 工作手冊 ↗</a></aside>
 <div class="library-content"><div class="results-head"><p id="result-count" role="status">共 {len(notes)} 篇筆記</p><button id="reset" type="button">重設篩選 ↻</button></div><div id="note-grid" class="note-grid">{cards}</div><div id="empty" hidden><h3>這裡還沒有符合的筆記。</h3><p>換個關鍵字，或試著讀讀其他方向。</p></div></div></div></section>
-<section class="bottom-grid"><div class="try-panel" id="drawdown-tool"><div class="eyebrow">TRY A LITTLE</div><h2>跌下去，要漲多少才回得來？</h2><p>教學假設 · 無加減碼與費用，以固定本金計算。</p><label for="decline">從高點下跌 <output id="decline-value">20%</output></label><input id="decline" type="range" min="0" max="90" step="1" value="20"><div class="tool-result"><div><small>回本需要上漲</small><strong id="recovery">25.00%</strong></div><p>計算方式<br><code id="recovery-formula">20% ÷ (1 − 20%)</code></p></div><a href="notes/drawdown-recovery.html">把這個例子讀完整 →</a></div>
+<section class="bottom-grid"><div class="try-panel" id="drawdown-tool"><div class="eyebrow">TRY A LITTLE</div><h2>跌下去，要漲多少才回得來？</h2><p>教學假設 · 無加減碼與費用，以固定本金計算。</p><label for="decline">從高點下跌 <output id="decline-value">20%</output></label><input id="decline" type="range" min="0" max="90" step="1" value="20"><div class="tool-result"><div><small>回本需要上漲</small><strong id="recovery" role="status" aria-live="polite" aria-atomic="true">25.00%</strong></div><p>計算方式<br><code id="recovery-formula">20% ÷ (1 − 20%)</code></p></div><a href="notes/drawdown-recovery.html">把這個例子讀完整 →</a></div>
 <div class="grow-panel"><div class="eyebrow">BUILT TO GROW</div><h2>下次丟一份新資料，<br>讓 AI 照同一套規則接著做。</h2><ol><li><span>01</span>先讀 AGENTS.md，確認邊界和格式。</li><li><span>02</span>補來源，用同一份模板寫筆記。</li><li><span>03</span>檢查、建置，再更新整個筆記庫。</li></ol><a href="rules.html">看規則怎麼對上實作 ↗</a></div></section></main>'''
     output = {'index.html': shell('首頁', home)}
     for note in notes:
         source_cards = ''.join(f'<li><span>{escape(sources[k]["publisher"])}</span><a href="{escape(sources[k]["url"], quote=True)}" target="_blank" rel="noopener noreferrer">{escape(sources[k]["title"])} ↗</a><small>查閱 {sources[k]["checked"]}</small></li>' for k in note['sources'])
         related = ''.join(card(lookup[key], prefix='../') for key in note['related'])
-        origin = f'<div class="origin"><strong>這篇內容的依據</strong><p>{escape(note["origin"])}</p></div>'
-        article = f'''<main id="main" class="article-wrap"><a class="back-link" href="../index.html#library">← 回到筆記庫</a><header class="article-header"><span class="category">{escape(note['category'])}</span><h1>{escape(note['title'])}</h1><p class="article-summary">{escape(note['summary'])}</p><div class="article-meta"><span>{note['updated']} 更新</span><span>{max(2, round(len(note['body'])/320))} 分鐘閱讀</span><button class="save" data-save="{note['id']}" aria-label="收藏 {escape(note['title'], quote=True)}" aria-pressed="false">♡ 收藏</button></div></header>{origin}<article class="prose">{markdown(note['body'])}</article><section class="sources"><h2>這篇的來源</h2><ul>{source_cards}</ul><a class="text-link" href="../{note['source_path']}">查看原始 Markdown ↗</a></section><section class="related"><div class="eyebrow">KEEP READING</div><h2>也許你會想接著看</h2><div class="note-grid">{related}</div></section></main>'''
+        backlinks = ''.join(f'<li><a href="{item["id"]}.html">{escape(item["title"])}</a></li>' for item in incoming[note['id']])
+        backlink_panel = '<section class="backlinks"><h2>哪些筆記連到這裡</h2><ul>' + backlinks + '</ul></section>' if backlinks else ''
+        experiment = note['experiment']
+        experiment_html = ''
+        if experiment:
+            experiment_html = '<section class="experiment"><h2>重現這個實驗</h2><p>教學輸入、可重跑腳本與產生的結果放在同一份專案。</p>'
+            experiment_html += '<figure><img src="../' + escape(experiment['chart'], quote=True) + '" alt="三條教學執行路徑的期末資產比較"><figcaption>教學假設，依 CSV 輸入由 Python 重新產生。</figcaption></figure><div class="rule-actions">'
+            for key, label in [('script', 'Python 腳本'), ('input', '教學輸入 CSV'), ('output', '計算結果 JSON')]:
+                experiment_html += '<a href="../' + escape(experiment[key], quote=True) + '">' + label + ' ↗</a>'
+            experiment_html += '</div></section>'
+        record_link = '<a href="../' + escape(note['experience_record'], quote=True) + '">閱讀作者提供的觀察與限制 ↗</a>' if note['experience_record'] else ''
+        origin = f'<div class="origin"><strong>這篇內容的依據</strong><p>{escape(note["origin"])}</p>{record_link}</div>'
+        article = f'''<main id="main" class="article-wrap"><a class="back-link" href="../index.html#library">← 回到筆記庫</a><header class="article-header"><span class="category">{escape(note['category'])}</span><h1>{escape(note['title'])}</h1><p class="article-summary">{escape(note['summary'])}</p><div class="article-meta"><span>{note['updated']} 更新</span><span>{max(2, round(len(note['body'])/320))} 分鐘閱讀</span><button class="save" data-save="{note['id']}" aria-label="收藏 {escape(note['title'], quote=True)}" aria-pressed="false">♡ 收藏</button></div></header>{origin}<article class="prose">{markdown(note['body'])}</article>{experiment_html}<section class="sources"><h2>這篇的來源</h2><ul>{source_cards}</ul><a class="text-link" href="../{note['source_path']}">查看原始 Markdown ↗</a></section><section class="related"><div class="eyebrow">KEEP READING</div><h2>也許你會想接著看</h2><div class="note-grid">{related}</div></section>{backlink_panel}</main>'''
         output[f'notes/{note["id"]}.html'] = shell(note['title'], article, prefix='../', description=note['summary'], active='article')
     rules = (ROOT / 'AGENTS.md').read_text()
     manifest = '<ul class="file-tree">' + ''.join(f'<li><a href="{escape(n["source_path"])}">{escape(n["source_path"])}</a></li>' for n in notes) + '</ul>'

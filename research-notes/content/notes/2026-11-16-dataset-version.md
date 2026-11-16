@@ -17,7 +17,10 @@
     "next-bar-execution",
     "evidence-checklist"
   ],
-  "origin": "官方歷史資料文件整理與自行設計的研究紀錄格式，沒有查詢真實帳戶。"
+  "origin": "官方歷史資料文件整理與自行設計的研究紀錄格式，沒有查詢真實帳戶。",
+  "example_kind": "teaching",
+  "experience_record": null,
+  "experiment": null
 }
 ---
 ## 我想釐清的問題

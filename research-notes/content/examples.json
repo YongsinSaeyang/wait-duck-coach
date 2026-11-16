@@ -1,0 +1,71 @@
+{
+  "no-trade-no-proof": [
+    {
+      "expression": "100000 // 120",
+      "expected": 833,
+      "display": "833 股"
+    },
+    {
+      "expression": "1000 * 120",
+      "expected": 120000,
+      "display": "120,000 元"
+    }
+  ],
+  "drawdown-recovery": [
+    {
+      "expression": "(1 - 80000 / 100000) * 100",
+      "expected": 20,
+      "display": "20%"
+    },
+    {
+      "expression": "(100000 / 80000 - 1) * 100",
+      "expected": 25,
+      "display": "25%"
+    }
+  ],
+  "next-bar-execution": [
+    {
+      "expression": "103 - 100",
+      "expected": 3,
+      "display": "3 元"
+    }
+  ],
+  "costs-matter": [
+    {
+      "expression": "-10000 * 0.001 * 2",
+      "expected": -20,
+      "display": "−20 元"
+    },
+    {
+      "expression": "-20 / 10010",
+      "expected": -0.001998001998001998,
+      "display": "−0.1998%"
+    }
+  ],
+  "dataset-version": [
+    {
+      "expression": "(110 / 100 - 1) * 100",
+      "expected": 10,
+      "display": "10%"
+    },
+    {
+      "expression": "(110 / 105 - 1) * 100",
+      "expected": 4.761904761904767,
+      "display": "4.76%"
+    }
+  ],
+  "evidence-checklist": [
+    {
+      "expression": "(110 / 100 - 1) * 100",
+      "expected": 10,
+      "display": "10%"
+    }
+  ],
+  "annualization-is-a-scale": [
+    {
+      "expression": "(1.1 ** 4 - 1) * 100",
+      "expected": 46.41,
+      "display": "46.41%"
+    }
+  ]
+}

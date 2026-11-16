@@ -18,7 +18,10 @@
     "drawdown-recovery",
     "no-trade-no-proof"
   ],
-  "origin": "教學假設。使用相同每邊費率的簡化例子，並非任何券商的真實費率。"
+  "origin": "教學假設。使用相同每邊費率的簡化例子，並非任何券商的真實費率。",
+  "example_kind": "teaching",
+  "experience_record": null,
+  "experiment": null
 }
 ---
 ## 我想釐清的問題

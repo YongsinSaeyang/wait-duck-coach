@@ -1,0 +1,9 @@
+{
+  "record_type": "author_supplied_classroom_observation",
+  "recorded_on": "2026-11-01",
+  "context": "第八週 Gradio 本地歷史試算，本金為教學設定。",
+  "author_quote": "第一次未成交原因：有持有訊號，但現金不足以買入一個設定股數單位，所以本次沒有任何成交。這次 0% 不代表策略沒風險。",
+  "interpretation": "工具回報資金不足而未能建立本地買入紀錄。原口語的未成交應在教學文字釐清為未進場。",
+  "limitation": "原始第一筆完整逐步工具日誌未另外保存，無法從這份觀察推出真實市場的拒單或未成交原因。",
+  "broker_orders_sent": false
+}
