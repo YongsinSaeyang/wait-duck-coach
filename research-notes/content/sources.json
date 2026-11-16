@@ -1,0 +1,32 @@
+{
+  "freqtrade-backtesting": {
+    "title": "Backtesting",
+    "publisher": "Freqtrade 官方文件",
+    "url": "https://www.freqtrade.io/en/stable/backtesting/",
+    "checked": "2026-11-16"
+  },
+  "freqtrade-lookahead": {
+    "title": "Lookahead analysis",
+    "publisher": "Freqtrade 官方文件",
+    "url": "https://www.freqtrade.io/en/stable/lookahead-analysis/",
+    "checked": "2026-11-16"
+  },
+  "shioaji-history": {
+    "title": "Historical Market Data",
+    "publisher": "永豐金證券 Shioaji",
+    "url": "https://sinotrade.github.io/tutor/market_data/historical/",
+    "checked": "2026-11-16"
+  },
+  "sec-fees": {
+    "title": "Understanding Fees",
+    "publisher": "美國 SEC · Investor.gov",
+    "url": "https://www.investor.gov/introduction-investing/getting-started/understanding-fees",
+    "checked": "2026-11-16"
+  },
+  "sec-compound": {
+    "title": "Compound Interest Calculator",
+    "publisher": "美國 SEC · Investor.gov",
+    "url": "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator",
+    "checked": "2026-11-16"
+  }
+}

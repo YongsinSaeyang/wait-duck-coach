@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="一個報酬數字應該帶著資料日期、價格口徑與參數一起保存。把研究條件寫成小卡，之後才能重做相同的比較。"><meta name="theme-color" content="#f8f6ee">
+<title>同一段回測，資料換了就不一樣？ · 等等鴨研究筆記</title><link rel="icon" href="../assets/duck.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css"><script defer src="../assets/site.js"></script></head>
+<body><a class="skip" href="#main">跳至主要內容</a>
+<header class="site-header"><div class="header-inner"><a class="brand" href="../index.html"><img src="../assets/duck.svg" alt="" width="42" height="42"><span>等等鴨<small>RESEARCH NOTES</small></span></a>
+<nav aria-label="主要導覽"><a  href="../index.html">筆記庫</a><a  href="../rules.html">AI 工作規則</a><a href="https://github.com/YongsinSaeyang/wait-duck-coach/tree/main/research-notes" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav></div></header>
+<main id="main" class="article-wrap"><a class="back-link" href="../index.html#library">← 回到筆記庫</a><header class="article-header"><span class="category">研究方法</span><h1>同一段回測，資料換了就不一樣？</h1><p class="article-summary">一個報酬數字應該帶著資料日期、價格口徑與參數一起保存。把研究條件寫成小卡，之後才能重做相同的比較。</p><div class="article-meta"><span>2026-11-16 更新</span><span>2 分鐘閱讀</span><button class="save" data-save="dataset-version" aria-label="收藏 同一段回測，資料換了就不一樣？" aria-pressed="false">♡ 收藏</button></div></header><div class="origin"><strong>這篇內容的依據</strong><p>官方歷史資料文件整理與自行設計的研究紀錄格式，沒有查詢真實帳戶。</p></div><article class="prose"><h2>我想釐清的問題</h2>
+<p>如果只記住某次結果，之後換了起點、股價還原方式或成本，很可能得到另一個數字。要重新比較，我需要先知道兩次研究用了什麼。</p>
+<h2>一個算得出來的例子</h2>
+<p>教學假設，一段序列的第一筆是 100、最後一筆是 110，不含股利與費用的價格報酬為 10%。若改用 105 當第一筆，同樣走到 110，結果約為 4.76%。</p>
+<p>我會把以下欄位和結果一起保存。</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">欄位</th><th scope="col">要留下的內容</th></tr></thead><tbody><tr><td>資料來源</td><td>官方介面、檔案或自造教學資料</td></tr><tr><td>區間與頻率</td><td>起訖日期、時區、日線或其他頻率</td></tr><tr><td>價格口徑</td><td>是否還原、是否含股利</td></tr><tr><td>執行條件</td><td>訊號規則、成交時點、股數單位及成本</td></tr></tbody></table></div>
+<h2>我會怎麼檢查</h2>
+<ul><li>查資料介面的欄位定義，確認回傳時間與數值的單位。</li><li>看資料是否有重複日期、缺漏或排序錯誤。</li><li>儲存原始檔雜湊或版本，避免下一次覆蓋後找不到原資料。</li></ul>
+<h2>還需要注意什麼</h2>
+<p>券商資料可取得的期間和使用方式應以當時權限及官方文件為準。這篇只整理資料紀錄方式，欄位可參考 <a href="https://sinotrade.github.io/tutor/market_data/historical/" target="_blank" rel="noopener noreferrer">Shioaji 歷史行情文件 ↗</a>。</p></article><section class="sources"><h2>這篇的來源</h2><ul><li><span>永豐金證券 Shioaji</span><a href="https://sinotrade.github.io/tutor/market_data/historical/" target="_blank" rel="noopener noreferrer">Historical Market Data ↗</a><small>查閱 2026-11-16</small></li></ul><a class="text-link" href="../content/notes/2026-11-16-dataset-version.md">查看原始 Markdown ↗</a></section><section class="related"><div class="eyebrow">KEEP READING</div><h2>也許你會想接著看</h2><div class="note-grid"><article class="note-card" data-note="next-bar-execution"><div class="card-meta"><span class="category">回測實作</span><span></span></div>
+<h3><a href="../notes/next-bar-execution.html">今天收盤才知道的訊號，何時才能買？</a></h3><p>當天均線要等收盤才完整。把訊號時間和模擬成交時間各寫一欄，就比較容易發現回測是不是偷用了當時還不知道的資料。</p><div class="tags"><span>時間對齊</span><span>前視偏誤</span></div>
+<div class="card-footer"><span>2026.11.16 · 2 分鐘</span><button type="button" class="save" data-save="next-bar-execution" aria-label="收藏 今天收盤才知道的訊號，何時才能買？" aria-pressed="false">♡ 收藏</button></div></article><article class="note-card" data-note="evidence-checklist"><div class="card-meta"><span class="category">研究方法</span><span></span></div>
+<h3><a href="../notes/evidence-checklist.html">AI 給了數字，我要從哪裡開始查？</a></h3><p>先把資料中的數字、自己推算的結果和情境假設分清楚。用一張來源卡提醒自己，AI 寫得流暢之後還有哪些地方要核對。</p><div class="tags"><span>證據回查</span><span>AI協作</span></div>
+<div class="card-footer"><span>2026.11.16 · 2 分鐘</span><button type="button" class="save" data-save="evidence-checklist" aria-label="收藏 AI 給了數字，我要從哪裡開始查？" aria-pressed="false">♡ 收藏</button></div></article></div></section></main>
+<footer class="site-footer"><span>等等鴨研究筆記 <b>·</b> 先看懂，再往前。</span><a href="../AGENTS.md">閱讀 AGENTS.md ↗</a><span>楊祐宗 · 2026</span></footer>
+<div id="toast" role="status" aria-live="polite"></div></body></html>
