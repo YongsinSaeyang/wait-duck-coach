@@ -20,4 +20,8 @@
 
 ## 發布狀態
 
-- 正準備透過已連接的 GitHub 上傳至 wait-duck-coach/research-notes，Pages 與正式網址待確認。
+- 完整 31 個檔案已透過 GitHub 連線上傳，首筆 commit 為 83fec4e8567badb1b25a197e82482ae3b9134114。
+- Pages build and deployment 工作 43819130751 成功。
+- 已在未登入的瀏覽器開啟正式首頁與規則頁，搜尋「複利」找到一篇。
+- 正式網址為 https://yongsinsaeyang.github.io/wait-duck-coach/research-notes/ 。
+- 發布後核對時修正規則頁範例語法的顯示，避免把格式範例誤做成可點開的來源網址。
