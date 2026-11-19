@@ -3,9 +3,9 @@
     "core.py": "159f05b2bddd299c22a4292dc574e5308b5731dfecc8b1f3a07afdf492cb7000",
     "research.py": "fd2faabff7daa1e294bdb62ac0b61ad2d646c640126f07b4f14f5e3aaa78051e",
     "pipeline.py": "5c56c1b0c53babba6a50ad62b87175a861dbc2b5b7f3b5684d6d083e96df3e39",
-    "build.py": "d6374e868f6405ee5bafecb8eac4a8f4d4299ecd64793137844c9b5ae6221388"
+    "build.py": "1191bbb59bb20bcf9434d4bfb51e0b38df5a7466030c02ba24ef1a5e82869c36"
   },
-  "input_sha256": "29d1605ce959fd68bc61a4dee0efa8608307e573badb088df80555353be68489",
+  "input_sha256": "2925c923aa567aab33ae1deadcc4a7b1c218273890a56f1a400f3c23ea2b2d14",
   "repair_loop": {
     "case": "missing_cost",
     "status": "recovered",
@@ -109,7 +109,7 @@
   },
   "total_executions": 16,
   "executed_on": "2026-11-19",
-  "run_id": "graph-29d1605ce959",
+  "run_id": "graph-2925c923aa56",
   "scope": "One normal scenario plus six deliberate fault injections, each replayed with late and early checks. Not natural model error rates.",
   "cases": 7,
   "executions": 14,

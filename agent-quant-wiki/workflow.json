@@ -60,9 +60,85 @@
     {
       "from_node": "result_gate",
       "return_to": "research_tool",
-      "reason": "數值或活動度需補說明"
+      "reason": "數值不符需重算；零活動度只補限制，不為了產生交易反覆重算"
     }
   ],
   "llm_authoring": "Codex in this conversation; manual trigger, not a hidden API call",
-  "replay": "Python verifies and builds persisted LLM-authored Wiki and slide outline"
+  "replay": "Python verifies and builds persisted LLM-authored Wiki and slide outline",
+  "node_details": [
+    {
+      "id": "ingest",
+      "label": "取得資料",
+      "summary": "章節、定位與雜湊",
+      "execution": "程式查輸入完整性",
+      "return_to": "補來源後重跑 ingest",
+      "repeat_when": "未取得或整理檔不完整"
+    },
+    {
+      "id": "wiki",
+      "label": "整理 Wiki",
+      "summary": "概念與 claim",
+      "execution": "本次對話 LLM 作者",
+      "return_to": "來源不足先回 ingest",
+      "repeat_when": "來源／範圍改變後重新整理"
+    },
+    {
+      "id": "query",
+      "label": "查詢 Wiki",
+      "summary": "明列 Wiki ID 路由",
+      "execution": "程式整理證據包",
+      "return_to": "修正研究問題或 Wiki 路由",
+      "repeat_when": "問題或 Wiki 路由改變"
+    },
+    {
+      "id": "evidence_gate",
+      "label": "檢查證據",
+      "summary": "核對 claim 與來源",
+      "execution": "程式結構檢查",
+      "return_to": "回 wiki",
+      "repeat_when": "未知 claim／source 或映射不符"
+    },
+    {
+      "id": "plan_gate",
+      "label": "檢查研究規格",
+      "summary": "成本、時點與範圍",
+      "execution": "程式規格檢查",
+      "return_to": "回 query 釐清研究規格",
+      "repeat_when": "成本缺漏／訊號時點／選擇範圍不符"
+    },
+    {
+      "id": "research_tool",
+      "label": "研究工具",
+      "summary": "合成資料計算",
+      "execution": "固定 Python 工具",
+      "return_to": "先回 plan_gate 核對規格",
+      "repeat_when": "資料或合法規格改變"
+    },
+    {
+      "id": "result_gate",
+      "label": "核對研究結果",
+      "summary": "算術、活動度與限制",
+      "execution": "程式核對數字；零交易回警示",
+      "return_to": "數字錯回工具；零交易補限制",
+      "repeat_when": "數字不符重算；零交易不靠反覆重算消除"
+    },
+    {
+      "id": "render",
+      "label": "產生教材",
+      "summary": "十八頁 HTML",
+      "execution": "程式建置已保存的 LLM 稿",
+      "return_to": "回對應的 Wiki／規格／工具節點",
+      "repeat_when": "內容修正後重新建置"
+    },
+    {
+      "id": "review",
+      "label": "審閱教材",
+      "summary": "來源語意與結論邊界",
+      "execution": "人工複核待完成；重播只記錄待辦",
+      "return_to": "回造成問題的對應節點",
+      "repeat_when": "複核發現問題時修訂，最多兩次"
+    }
+  ],
+  "review_boundary": "Replay logs a human-review reminder, not a completed semantic approval.",
+  "warning_behavior": "Zero-activity warning may continue to render only with the stated performance-interpretation limitation; semantic review remains human."
 }

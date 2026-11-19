@@ -1,0 +1,29 @@
+{
+  "revised_on": "2026-11-19",
+  "slide": "s13",
+  "wiki": [
+    "W08",
+    "W05"
+  ],
+  "basis": [
+    {
+      "wiki": "W08",
+      "quote": "主要測試零交易，讓 0% 無法支持低風險或策略有效的說法"
+    },
+    {
+      "wiki": "W05",
+      "quote": "主資料沒有交易，應保留「無法評估交易後表現」的結論，而不是挑有交易的另一份資料當成績效證明。"
+    }
+  ],
+  "before_points": [
+    "先看交易次數，再解讀損益和回撤。",
+    "此資料的零報酬來自沒有交易。",
+    "原始結果保留，不能改成策略安全或有效的結論。"
+  ],
+  "after_points": [
+    "交易次數為零：回報結果，但不評估策略效果。",
+    "0% 是未進場的結果，不是低風險的證據。",
+    "Coverage 只補交易與成本機制，不能替換原研究結論。"
+  ],
+  "scope": "Actual wording revision in this editing pass; no claim that the earlier slide asserted low risk."
+}

@@ -7,7 +7,7 @@
 - 先討論主題與深度，再擷取來源，最後才寫 Wiki／簡報。需求確認保留於 docs/discussion.md。
 - 至少五篇原始資料實際讀取後，將相關章節的精簡整理放 content/sources/。不得只登記 URL。外部文章保留來源、定位、讀取範圍與日期；節錄整理不宣稱是完整全文快照。
 - content/sources.json 登記七篇文件與本地整理檔的 SHA-256。精簡原文引用每來源最多 25 個英文單字；其餘以自己的話整理，保留引文與推論的界線。
-- content/wiki/ 是由本次 Codex 對話中的 LLM 節點閱讀來源後整理的 Wiki。每篇有明確 claim ID、來源對應與相關頁。不是只把七張來源卡並排。
+- content/wiki/ 是由本次 Codex 對話中的 LLM 節點閱讀來源後整理的 Wiki。每篇有明確 claim ID、來源對應與相關頁，並分別交代研究重要性、常見誤解與來源→主張→研究含義。不是只把七張來源卡並排。
 - content/claims.json 區分 source、design、synthetic 主張。來源主張要對到來源段落；工程設計要標本專案選擇；合成結果要對到可重算工具輸出。
 - 模型在本次對話中協助作者整理與修改。Python 流程不私下呼叫 LLM；不得虛構 API、模型版本、token、延遲或自然失敗紀錄。
 
@@ -19,7 +19,7 @@
 
 ## 流程與教材
 
-workflow.json 記錄節點與退回條件；scripts/pipeline.py 以明列程式執行相同節點的可重跑查詢、檢查、工具計算與暫存建置。LLM 作者節點的輸出是 content/wiki/ 與 content/slides.json，修改前須閱讀 prompts/ 的工作說明。程式檢查不能取代來源語意的人工覆核。
+workflow.json 記錄九個節點與退回條件；圖與節點表由同一份 node_details 生成，不另維護七節點摘要。scripts/pipeline.py 以明列程式執行相同節點的可重跑查詢、檢查、工具計算與暫存建置。LLM 作者節點的輸出是 content/wiki/ 與 content/slides.json，修改前須閱讀 prompts/ 的工作說明。程式檢查不能取代來源語意的人工覆核。
 
 每張投影片都要有 Wiki／claim／source 對應。教學由任務、Agent 定義、Wiki 證據、工具規格、時間切分、合成實驗、反思依序展開。滑動或鍵盤切換、目錄、閱讀模式、講者筆記及來源面板皆可操作。數字從工具輸出插入，不在投影片手抄第二套數值。
 

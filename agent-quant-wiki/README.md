@@ -43,3 +43,7 @@ python3 -m http.server 8944 --bind 127.0.0.1
 AGENTS.md 定義規則；docs/discussion.md 保留需求；prompts/ 保存作者指令；content/sources/ 是 ingest 整理；content/wiki/ 與 claims.json 是互連知識；content/slides.json 是教材結構；runs/ 保存真實程式執行與觀察；workflow.json 記錄節點和退回條件。
 
 圖中的修訂上限是兩次；未知依據不得自動補造，回復只使用明列的教學快照。單元測試另驗證無法回復時最多三次嘗試後交人工，不會一直循環。
+
+## 教學深度修訂
+
+八篇 Wiki 均補研究含義、常見誤解與主張對照；九節點圖與節點表由 workflow.json 產生。docs/teaching-revision.md 保存第十三頁在本輪的真實前後修改；docs/discussion.md 補實際需求問答摘錄。研究結果解讀是按影響程度選的優先改善項，不是杜撰的自然失敗頻率排名。仍為原有三十一項測試與十四次對照加兩次回復，沒有新增實驗或測試案例。

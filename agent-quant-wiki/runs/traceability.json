@@ -188,11 +188,13 @@
     "query": "主要測試期沒有任何進場",
     "retrieval": "explicit Wiki ID routing, not semantic/vector retrieval",
     "wiki": [
-      "audit-loop"
+      "audit-loop",
+      "cost-mechanics"
     ],
     "claims": [
       "Q01",
-      "R02"
+      "R02",
+      "Q02"
     ],
     "sources": []
   },

@@ -15,8 +15,11 @@ def money(value):return f'{float(value):,.2f}'
 def pct(value):return f'{value:+.2f}%'.replace('-', '−')
 def table(headers,rows):return '<div class="table-wrap"><table><thead><tr>'+''.join('<th scope="col">'+E(str(x))+'</th>' for x in headers)+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+E(str(x))+'</td>' for x in row)+'</tr>' for row in rows)+'</tbody></table></div>'
 def graph():
- labels=[('取得資料','實際讀取章節與定位'),('整理 Wiki','LLM 協作作者節點'),('查詢證據','依 Wiki ID 取得主張'),('檢查規格','先驗來源與輸入'),('研究工具','固定合成資料試算'),('結果核對','算術、活動度與限制'),('產生教材','18 頁 HTML 簡報')]
- return '<ol class="flow">'+''.join('<li><strong>'+E(a)+'</strong><span>'+E(b)+'</span></li>' for a,b in labels)+'</ol><p class="loop-return">缺來源 ↩ 回 Wiki　｜　錯規格 ↩ 回研究問題　｜　數字不符 ↩ 回工具　｜　最多兩次修訂後交人工</p>'
+ workflow=read('workflow.json');details={n['id']:n for n in workflow['node_details']}
+ return '<ol class="flow">'+''.join('<li><code>'+E(k)+'</code><strong>'+E(details[k]['label'])+'</strong><span>'+E(details[k]['summary'])+'</span></li>' for k in workflow['nodes'])+'</ol><p class="loop-return">缺來源 ↩ 回 wiki　｜　規格不明 ↩ 回 query 釐清研究規格　｜　數字不符 ↩ 回 research_tool　｜　零交易保留限制，不靠重算消除　｜　最多兩次修訂後交人工</p>'
+
+def node_table():
+ return table(['節點','工作／執行者','失敗退回','重複條件'],[[n['id'],n['summary']+'；'+n['execution'],n['return_to'],n['repeat_when']] for n in read('workflow.json')['node_details']])+'<p class="meta">上表列編輯與修訂規則。程式對照重播只自動驗證指定分支，實際回復使用明列教學快照；review 事件是人工複核待辦，不代表已人工核准。</p>'
 def plot(report):
  values=[float(p['equity']) for row in report['final_test_scenarios'] for p in row['curve']];low=min(values+[100000])-1000;high=max(values+[100000])+1000
  y=lambda n:260-(n-low)/(high-low)*190
@@ -43,6 +46,12 @@ def render(write=True):
   claimhtml=''.join('<li><code>'+c+'</code> <span class="kind">'+E(cmap[c]['kind'])+'</span> '+E(cmap[c]['text'])+'</li>' for c in w['claims'])
   refs=''.join('<li><a href="../sources/'+sid.lower()+'.html">'+sid+'｜'+E(smap[sid]['title'])+'</a><small>'+E(smap[sid]['locator'])+'</small></li>' for sid in sids) or '<li>本頁主要為本作工程設計與合成結果；外部概念可沿相關 Wiki 回查。</li>'
   related=''.join('<li><a href="'+wmap[k]['slug']+'.html">'+E(wmap[k]['title'])+'</a></li>' for k in w['related'])
+  implication_rows=''
+  for item in w.get('implications',[]):
+   c=cmap[item['claim']]
+   source_links=' '.join('<a href="../sources/'+sid.lower()+'.html">'+sid+'</a>' for sid in c['sources']) or E(c['kind'])+'：本作紀錄'
+   implication_rows+='<tr><td>'+source_links+'</td><td><code>'+E(c['id'])+'</code><br>'+E(c['text'])+'</td><td>'+E(item['implication'])+'</td><td>'+E(item['boundary'])+'</td></tr>'
+  sections+='<section><h2>來源 → 主張 → 研究含義</h2><p class="meta">研究含義為本專案的應用解釋；工程選擇與合成結果另標類型，不冒稱原文結論。</p><div class="table-wrap"><table><thead><tr><th scope="col">依據</th><th scope="col">已登記主張</th><th scope="col">本作研究含義</th><th scope="col">不能推論</th></tr></thead><tbody>'+implication_rows+'</tbody></table></div></section>'
   out['wiki/'+w['slug']+'.html']=shell(w['title'],'<main id="main" class="reading"><a href="index.html">← Wiki 目錄</a><p class="eyebrow">'+w['id']+'</p><h1>'+E(w['title'])+'</h1>'+sections+'<section><h2>主張與證據</h2><ul class="claims">'+claimhtml+'</ul><ul>'+refs+'</ul></section><section><h2>相關 Wiki</h2><ul>'+related+'</ul></section><p><a href="../content/wiki/'+w['slug']+'.json">Wiki 原始結構 JSON →</a></p></main>',prefix='../')
  source_rows=[]
  for s in sources:
@@ -71,7 +80,7 @@ def render(write=True):
  deck='<main id="main" class="deck"><div class="deck-toolbar"><button id="previous" type="button" aria-label="上一頁">←</button><output id="slide-status" aria-live="polite">1 / 18</output><button id="next" type="button" aria-label="下一頁">→</button><button id="reading-mode" type="button" aria-pressed="false">閱讀模式</button><button id="contents" type="button">目錄</button></div><div class="slide-stage">'+''.join(sections)+'</div><dialog id="slide-menu"><h2>教學目錄</h2><button type="button" id="close-menu">關閉</button><nav aria-label="投影片目錄">'+menu+'</nav></dialog><p class="deck-hint">← → 或 PageUp／PageDown 切頁；Home／End 到首尾。表單內按鍵保留原功能。</p></main>'
  out['slides.html']=shell('教學簡報',deck)
  rows=[[r['case'],r['placement'],r['outcome'],r['error'] or '活動度限制已註明',r['tool_invocations'],r['temporary_drafts']] for r in run['results']]
- evidence='<main id="main" class="reading"><h1>Loop／graph 與實際執行紀錄</h1><p class="lead">七種情境 × 前後兩種檢查位置，14 次實際重播。六個錯誤案例是故意注入，不是模型自然錯誤率。</p>'+graph()+'<h2>本次自然觀察</h2><p>資料取得有一次 PDF 逾時；研究工具主要測試期沒有交易，活動度檢查拒絕解讀績效。各只觀察一次，沒有足夠樣本宣稱哪個節點最常出錯。</p><h2>檢查移動的理由</h2><p>來源完整性在 ingest 先查；工具所需的成本與時間規格在計算前先查。結果產生後再核對算術與活動度，避免把結構檢查誤當成研究有效。</p>'+table(['案例','檢查位置','結果','原因／限制','工具次數','暫存草稿'],rows)+'<h2>一次真的回復迴圈</h2><p>missing_cost 第一次在 plan_gate 被拒絕；回復明列的教學規格快照後，第二次通過並保留無交易警示。程式沒有猜使用者參數，也沒有宣稱模型自行修復。這兩次另計，因此本輪共 16 次執行：14 次前後對照＋2 次回復。</p><h2>真的執行紀錄</h2><ul>'+''.join('<li><a href="'+name+'">'+E(label)+'</a></li>' for name,label in [('runs/graph-run.json','14 次節點事件 JSON'),('runs/evidence-packs.json','投影片→Wiki→主張→來源'),('runs/research-result.json','主要合成資料結果'),('runs/coverage-result.json','Coverage 機制補測結果'),('runs/retrieval-observation.json','取得資料的真實問題'),('runs/activity-observation.json','活動度的真實發現'),('workflow.json','Graph 與退回條件'),('docs/discussion.md','先討論後生成的需求'),('prompts/01-wiki.md','Wiki 作者指令'),('prompts/02-teaching.md','教學簡報指令'),('prompts/03-review.md','審閱指令')])+'</ul><h2>本次 LLM 的角色</h2><p>本次 Codex 對話讀取來源、協作 Wiki 與教材。重播命令使用已保存的 LLM 作者輸出，沒有呼叫即時模型、沒有量測模型 token 或延遲，也沒有接券商。程式驗證通過不等於來源語意已獨立核實。</p></main>'
+ evidence='<main id="main" class="reading"><h1>Loop／graph 與實際執行紀錄</h1><p class="lead">七種情境 × 前後兩種檢查位置，14 次實際重播。六個錯誤案例是故意注入，不是模型自然錯誤率。</p>'+graph()+node_table()+'<h2>本次自然觀察與優先改善節點</h2><p>如果只能選一個優先改善節點，本次選「研究結果解讀」：零交易時的 0% 若被誤讀成低風險，會直接影響簡報結論。這是按影響程度排序，不是發生頻率統計。PDF 逾時與零交易各觀察一次，也沒有紀錄顯示模型真的曾寫出低風險結論。</p><h2>檢查移動的理由</h2><p>來源完整性在 ingest 先查；成本、訊號與測試範圍在 plan_gate 先查。result_gate 放在 render 前，核對現金流並回報零交易警示；產生教材後的 review 明列人工檢查「結論是否超過證據」，尚不是自動語意驗證器。</p>'+table(['案例','檢查位置','結果','原因／限制','工具次數','暫存草稿'],rows)+'<h2>一次真的回復迴圈</h2><p>missing_cost 第一次在 plan_gate 被拒絕；回復明列的教學規格快照後，第二次通過並保留無交易警示。程式沒有猜使用者參數，也沒有宣稱模型自行修復。這兩次另計，因此本輪共 16 次執行：14 次前後對照＋2 次回復。</p><h2>真的執行紀錄</h2><ul>'+''.join('<li><a href="'+name+'">'+E(label)+'</a></li>' for name,label in [('runs/graph-run.json','14 次對照＋2 次回復事件 JSON'),('runs/evidence-packs.json','投影片→Wiki→主張→來源'),('runs/research-result.json','主要合成資料結果'),('runs/coverage-result.json','Coverage 機制補測結果'),('runs/retrieval-observation.json','取得資料的真實問題'),('runs/activity-observation.json','活動度的真實發現'),('workflow.json','Graph 與退回條件'),('docs/discussion.md','先討論後生成的需求'),('docs/teaching-revision.md','Wiki 改寫第 13 頁的實際前後紀錄'),('prompts/01-wiki.md','Wiki 作者指令'),('prompts/02-teaching.md','教學簡報指令'),('prompts/03-review.md','審閱指令')])+'</ul><h2>本次 LLM 的角色</h2><p>本次 Codex 對話讀取來源、協作 Wiki 與教材。重播命令使用已保存的 LLM 作者輸出，沒有呼叫即時模型、沒有量測模型 token 或延遲，也沒有接券商。程式驗證通過不等於來源語意已獨立核實。</p></main>'
  out['evidence.html']=shell('流程與紀錄',evidence)
  out['runs/traceability.json']=json.dumps(packs,ensure_ascii=False,indent=2)+'\n'
  if write:
