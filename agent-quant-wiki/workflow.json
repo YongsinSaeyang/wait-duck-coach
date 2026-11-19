@@ -1,0 +1,68 @@
+{
+  "title": "Wiki 支援的量化研究教材 workflow",
+  "max_revisions": 2,
+  "nodes": [
+    "ingest",
+    "wiki",
+    "query",
+    "evidence_gate",
+    "plan_gate",
+    "research_tool",
+    "result_gate",
+    "render",
+    "review"
+  ],
+  "edges": [
+    [
+      "ingest",
+      "wiki"
+    ],
+    [
+      "wiki",
+      "query"
+    ],
+    [
+      "query",
+      "evidence_gate"
+    ],
+    [
+      "evidence_gate",
+      "plan_gate"
+    ],
+    [
+      "plan_gate",
+      "research_tool"
+    ],
+    [
+      "research_tool",
+      "result_gate"
+    ],
+    [
+      "result_gate",
+      "render"
+    ],
+    [
+      "render",
+      "review"
+    ]
+  ],
+  "loops": [
+    {
+      "from_node": "evidence_gate",
+      "return_to": "wiki",
+      "reason": "缺來源或主張未登記"
+    },
+    {
+      "from_node": "plan_gate",
+      "return_to": "query",
+      "reason": "成本、訊號時間或測試範圍不合法"
+    },
+    {
+      "from_node": "result_gate",
+      "return_to": "research_tool",
+      "reason": "數值或活動度需補說明"
+    }
+  ],
+  "llm_authoring": "Codex in this conversation; manual trigger, not a hidden API call",
+  "replay": "Python verifies and builds persisted LLM-authored Wiki and slide outline"
+}

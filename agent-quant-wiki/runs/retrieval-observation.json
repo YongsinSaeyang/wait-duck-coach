@@ -1,0 +1,9 @@
+{
+  "record_type": "observed_retrieval_event",
+  "date": "2026-11-17",
+  "failed_url": "https://www.davidhbailey.com/dhbpapers/backtest-prob.pdf",
+  "tool_message": "Timeout fetching",
+  "count": 1,
+  "resolution": "改讀同一作者群可取得的 2016 年文章 overfit-tools-at.pdf；未將逾時文件算入七篇 ingest。",
+  "scope": "單次資料取得事件，不代表長期節點失敗率。"
+}

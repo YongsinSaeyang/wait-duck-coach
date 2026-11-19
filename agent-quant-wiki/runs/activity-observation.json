@@ -1,0 +1,8 @@
+{
+  "node": "research_validation",
+  "date": "2026-11-17",
+  "observed_error": "INSUFFICIENT_ACTIVITY",
+  "primary_test_round_trips": 0,
+  "resolution": "保留原始無交易結果；另外加入 coverage 合成 fixture 以檢查交易與成本機制，開發資料和選參數結果不變。",
+  "scope": "此為活動度檢查，不是程式算錯；兩份資料不作市場獲利證據。"
+}

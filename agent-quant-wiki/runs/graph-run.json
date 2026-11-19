@@ -1,0 +1,734 @@
+{
+  "code_sha256": {
+    "core.py": "159f05b2bddd299c22a4292dc574e5308b5731dfecc8b1f3a07afdf492cb7000",
+    "research.py": "fd2faabff7daa1e294bdb62ac0b61ad2d646c640126f07b4f14f5e3aaa78051e",
+    "pipeline.py": "5c56c1b0c53babba6a50ad62b87175a861dbc2b5b7f3b5684d6d083e96df3e39",
+    "build.py": "d6374e868f6405ee5bafecb8eac4a8f4d4299ecd64793137844c9b5ae6221388"
+  },
+  "input_sha256": "29d1605ce959fd68bc61a4dee0efa8608307e573badb088df80555353be68489",
+  "repair_loop": {
+    "case": "missing_cost",
+    "status": "recovered",
+    "attempts": [
+      {
+        "case": "missing_cost",
+        "placement": "early",
+        "outcome": "rejected",
+        "error": "MISSING_COST_ASSUMPTION",
+        "tool_invocations": 0,
+        "temporary_drafts": 0,
+        "model_calls": 0,
+        "events": [
+          {
+            "node": "ingest",
+            "status": "pass",
+            "detail": null
+          },
+          {
+            "node": "wiki",
+            "status": "pass",
+            "detail": "Persisted content authored with Codex; this replay makes no model calls."
+          },
+          {
+            "node": "query",
+            "status": "pass",
+            "detail": "Explicit Wiki routes define the evidence pack."
+          },
+          {
+            "node": "evidence_gate",
+            "status": "pass",
+            "detail": null
+          },
+          {
+            "node": "plan_gate",
+            "status": "rejected",
+            "detail": "MISSING_COST_ASSUMPTION"
+          }
+        ]
+      },
+      {
+        "case": "normal",
+        "placement": "early",
+        "outcome": "pass_with_warning",
+        "error": null,
+        "tool_invocations": 1,
+        "temporary_drafts": 1,
+        "model_calls": 0,
+        "events": [
+          {
+            "node": "ingest",
+            "status": "pass",
+            "detail": null
+          },
+          {
+            "node": "wiki",
+            "status": "pass",
+            "detail": "Persisted content authored with Codex; this replay makes no model calls."
+          },
+          {
+            "node": "query",
+            "status": "pass",
+            "detail": "Explicit Wiki routes define the evidence pack."
+          },
+          {
+            "node": "evidence_gate",
+            "status": "pass",
+            "detail": null
+          },
+          {
+            "node": "plan_gate",
+            "status": "pass",
+            "detail": null
+          },
+          {
+            "node": "research_tool",
+            "status": "pass",
+            "detail": "Computed both declared synthetic fixtures; no model or broker calls."
+          },
+          {
+            "node": "result_gate",
+            "status": "pass_with_warning",
+            "detail": [
+              "Primary final-test activity is zero; performance interpretation is blocked."
+            ]
+          },
+          {
+            "node": "render_verified_draft",
+            "status": "pass",
+            "detail": null
+          },
+          {
+            "node": "review",
+            "status": "pass",
+            "detail": "Program checks passed; source meaning still needs human review."
+          }
+        ]
+      }
+    ],
+    "correction": "Restore the explicit approved teaching fixture; no model inference or guessed user parameter."
+  },
+  "total_executions": 16,
+  "executed_on": "2026-11-19",
+  "run_id": "graph-29d1605ce959",
+  "scope": "One normal scenario plus six deliberate fault injections, each replayed with late and early checks. Not natural model error rates.",
+  "cases": 7,
+  "executions": 14,
+  "matched": 14,
+  "observed_retrieval": "runs/retrieval-observation.json",
+  "observed_activity": "runs/activity-observation.json",
+  "summary": {
+    "late": {
+      "tool_invocations": 6,
+      "temporary_drafts": 6
+    },
+    "early": {
+      "tool_invocations": 1,
+      "temporary_drafts": 0
+    }
+  },
+  "results": [
+    {
+      "case": "normal",
+      "placement": "late",
+      "outcome": "pass_with_warning",
+      "error": null,
+      "tool_invocations": 1,
+      "temporary_drafts": 1,
+      "model_calls": 0,
+      "events": [
+        {
+          "node": "ingest",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "wiki",
+          "status": "pass",
+          "detail": "Persisted content authored with Codex; this replay makes no model calls."
+        },
+        {
+          "node": "query",
+          "status": "pass",
+          "detail": "Explicit Wiki routes define the evidence pack."
+        },
+        {
+          "node": "research_tool",
+          "status": "pass",
+          "detail": "Computed both declared synthetic fixtures; no model or broker calls."
+        },
+        {
+          "node": "render_unverified_draft",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "evidence_gate",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "plan_gate",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "result_gate",
+          "status": "pass_with_warning",
+          "detail": [
+            "Primary final-test activity is zero; performance interpretation is blocked."
+          ]
+        },
+        {
+          "node": "review",
+          "status": "pass",
+          "detail": "Program checks passed; source meaning still needs human review."
+        }
+      ]
+    },
+    {
+      "case": "normal",
+      "placement": "early",
+      "outcome": "pass_with_warning",
+      "error": null,
+      "tool_invocations": 1,
+      "temporary_drafts": 1,
+      "model_calls": 0,
+      "events": [
+        {
+          "node": "ingest",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "wiki",
+          "status": "pass",
+          "detail": "Persisted content authored with Codex; this replay makes no model calls."
+        },
+        {
+          "node": "query",
+          "status": "pass",
+          "detail": "Explicit Wiki routes define the evidence pack."
+        },
+        {
+          "node": "evidence_gate",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "plan_gate",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "research_tool",
+          "status": "pass",
+          "detail": "Computed both declared synthetic fixtures; no model or broker calls."
+        },
+        {
+          "node": "result_gate",
+          "status": "pass_with_warning",
+          "detail": [
+            "Primary final-test activity is zero; performance interpretation is blocked."
+          ]
+        },
+        {
+          "node": "render_verified_draft",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "review",
+          "status": "pass",
+          "detail": "Program checks passed; source meaning still needs human review."
+        }
+      ]
+    },
+    {
+      "case": "unknown_claim",
+      "placement": "late",
+      "outcome": "rejected",
+      "error": "UNKNOWN_CLAIM",
+      "tool_invocations": 1,
+      "temporary_drafts": 1,
+      "model_calls": 0,
+      "events": [
+        {
+          "node": "ingest",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "wiki",
+          "status": "pass",
+          "detail": "Persisted content authored with Codex; this replay makes no model calls."
+        },
+        {
+          "node": "query",
+          "status": "pass",
+          "detail": "Explicit Wiki routes define the evidence pack."
+        },
+        {
+          "node": "research_tool",
+          "status": "pass",
+          "detail": "Computed both declared synthetic fixtures; no model or broker calls."
+        },
+        {
+          "node": "render_unverified_draft",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "evidence_gate",
+          "status": "rejected",
+          "detail": "UNKNOWN_CLAIM"
+        }
+      ]
+    },
+    {
+      "case": "unknown_claim",
+      "placement": "early",
+      "outcome": "rejected",
+      "error": "UNKNOWN_CLAIM",
+      "tool_invocations": 0,
+      "temporary_drafts": 0,
+      "model_calls": 0,
+      "events": [
+        {
+          "node": "ingest",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "wiki",
+          "status": "pass",
+          "detail": "Persisted content authored with Codex; this replay makes no model calls."
+        },
+        {
+          "node": "query",
+          "status": "pass",
+          "detail": "Explicit Wiki routes define the evidence pack."
+        },
+        {
+          "node": "evidence_gate",
+          "status": "rejected",
+          "detail": "UNKNOWN_CLAIM"
+        }
+      ]
+    },
+    {
+      "case": "unknown_source",
+      "placement": "late",
+      "outcome": "rejected",
+      "error": "UNKNOWN_SOURCE",
+      "tool_invocations": 1,
+      "temporary_drafts": 1,
+      "model_calls": 0,
+      "events": [
+        {
+          "node": "ingest",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "wiki",
+          "status": "pass",
+          "detail": "Persisted content authored with Codex; this replay makes no model calls."
+        },
+        {
+          "node": "query",
+          "status": "pass",
+          "detail": "Explicit Wiki routes define the evidence pack."
+        },
+        {
+          "node": "research_tool",
+          "status": "pass",
+          "detail": "Computed both declared synthetic fixtures; no model or broker calls."
+        },
+        {
+          "node": "render_unverified_draft",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "evidence_gate",
+          "status": "rejected",
+          "detail": "UNKNOWN_SOURCE"
+        }
+      ]
+    },
+    {
+      "case": "unknown_source",
+      "placement": "early",
+      "outcome": "rejected",
+      "error": "UNKNOWN_SOURCE",
+      "tool_invocations": 0,
+      "temporary_drafts": 0,
+      "model_calls": 0,
+      "events": [
+        {
+          "node": "ingest",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "wiki",
+          "status": "pass",
+          "detail": "Persisted content authored with Codex; this replay makes no model calls."
+        },
+        {
+          "node": "query",
+          "status": "pass",
+          "detail": "Explicit Wiki routes define the evidence pack."
+        },
+        {
+          "node": "evidence_gate",
+          "status": "rejected",
+          "detail": "UNKNOWN_SOURCE"
+        }
+      ]
+    },
+    {
+      "case": "missing_cost",
+      "placement": "late",
+      "outcome": "rejected",
+      "error": "MISSING_COST_ASSUMPTION",
+      "tool_invocations": 1,
+      "temporary_drafts": 1,
+      "model_calls": 0,
+      "events": [
+        {
+          "node": "ingest",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "wiki",
+          "status": "pass",
+          "detail": "Persisted content authored with Codex; this replay makes no model calls."
+        },
+        {
+          "node": "query",
+          "status": "pass",
+          "detail": "Explicit Wiki routes define the evidence pack."
+        },
+        {
+          "node": "research_tool",
+          "status": "pass",
+          "detail": "Computed both declared synthetic fixtures; no model or broker calls."
+        },
+        {
+          "node": "render_unverified_draft",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "evidence_gate",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "plan_gate",
+          "status": "rejected",
+          "detail": "MISSING_COST_ASSUMPTION"
+        }
+      ]
+    },
+    {
+      "case": "missing_cost",
+      "placement": "early",
+      "outcome": "rejected",
+      "error": "MISSING_COST_ASSUMPTION",
+      "tool_invocations": 0,
+      "temporary_drafts": 0,
+      "model_calls": 0,
+      "events": [
+        {
+          "node": "ingest",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "wiki",
+          "status": "pass",
+          "detail": "Persisted content authored with Codex; this replay makes no model calls."
+        },
+        {
+          "node": "query",
+          "status": "pass",
+          "detail": "Explicit Wiki routes define the evidence pack."
+        },
+        {
+          "node": "evidence_gate",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "plan_gate",
+          "status": "rejected",
+          "detail": "MISSING_COST_ASSUMPTION"
+        }
+      ]
+    },
+    {
+      "case": "same_bar_signal",
+      "placement": "late",
+      "outcome": "rejected",
+      "error": "LOOKAHEAD_SIGNAL_LAG",
+      "tool_invocations": 1,
+      "temporary_drafts": 1,
+      "model_calls": 0,
+      "events": [
+        {
+          "node": "ingest",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "wiki",
+          "status": "pass",
+          "detail": "Persisted content authored with Codex; this replay makes no model calls."
+        },
+        {
+          "node": "query",
+          "status": "pass",
+          "detail": "Explicit Wiki routes define the evidence pack."
+        },
+        {
+          "node": "research_tool",
+          "status": "pass",
+          "detail": "Computed both declared synthetic fixtures; no model or broker calls."
+        },
+        {
+          "node": "render_unverified_draft",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "evidence_gate",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "plan_gate",
+          "status": "rejected",
+          "detail": "LOOKAHEAD_SIGNAL_LAG"
+        }
+      ]
+    },
+    {
+      "case": "same_bar_signal",
+      "placement": "early",
+      "outcome": "rejected",
+      "error": "LOOKAHEAD_SIGNAL_LAG",
+      "tool_invocations": 0,
+      "temporary_drafts": 0,
+      "model_calls": 0,
+      "events": [
+        {
+          "node": "ingest",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "wiki",
+          "status": "pass",
+          "detail": "Persisted content authored with Codex; this replay makes no model calls."
+        },
+        {
+          "node": "query",
+          "status": "pass",
+          "detail": "Explicit Wiki routes define the evidence pack."
+        },
+        {
+          "node": "evidence_gate",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "plan_gate",
+          "status": "rejected",
+          "detail": "LOOKAHEAD_SIGNAL_LAG"
+        }
+      ]
+    },
+    {
+      "case": "test_selection",
+      "placement": "late",
+      "outcome": "rejected",
+      "error": "TEST_SET_USED_FOR_SELECTION",
+      "tool_invocations": 1,
+      "temporary_drafts": 1,
+      "model_calls": 0,
+      "events": [
+        {
+          "node": "ingest",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "wiki",
+          "status": "pass",
+          "detail": "Persisted content authored with Codex; this replay makes no model calls."
+        },
+        {
+          "node": "query",
+          "status": "pass",
+          "detail": "Explicit Wiki routes define the evidence pack."
+        },
+        {
+          "node": "research_tool",
+          "status": "pass",
+          "detail": "Computed both declared synthetic fixtures; no model or broker calls."
+        },
+        {
+          "node": "render_unverified_draft",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "evidence_gate",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "plan_gate",
+          "status": "rejected",
+          "detail": "TEST_SET_USED_FOR_SELECTION"
+        }
+      ]
+    },
+    {
+      "case": "test_selection",
+      "placement": "early",
+      "outcome": "rejected",
+      "error": "TEST_SET_USED_FOR_SELECTION",
+      "tool_invocations": 0,
+      "temporary_drafts": 0,
+      "model_calls": 0,
+      "events": [
+        {
+          "node": "ingest",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "wiki",
+          "status": "pass",
+          "detail": "Persisted content authored with Codex; this replay makes no model calls."
+        },
+        {
+          "node": "query",
+          "status": "pass",
+          "detail": "Explicit Wiki routes define the evidence pack."
+        },
+        {
+          "node": "evidence_gate",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "plan_gate",
+          "status": "rejected",
+          "detail": "TEST_SET_USED_FOR_SELECTION"
+        }
+      ]
+    },
+    {
+      "case": "wrong_result",
+      "placement": "late",
+      "outcome": "rejected",
+      "error": "RESULT_MISMATCH",
+      "tool_invocations": 1,
+      "temporary_drafts": 1,
+      "model_calls": 0,
+      "events": [
+        {
+          "node": "ingest",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "wiki",
+          "status": "pass",
+          "detail": "Persisted content authored with Codex; this replay makes no model calls."
+        },
+        {
+          "node": "query",
+          "status": "pass",
+          "detail": "Explicit Wiki routes define the evidence pack."
+        },
+        {
+          "node": "research_tool",
+          "status": "pass",
+          "detail": "Computed both declared synthetic fixtures; no model or broker calls."
+        },
+        {
+          "node": "render_unverified_draft",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "evidence_gate",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "plan_gate",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "result_gate",
+          "status": "rejected",
+          "detail": "RESULT_MISMATCH"
+        }
+      ]
+    },
+    {
+      "case": "wrong_result",
+      "placement": "early",
+      "outcome": "rejected",
+      "error": "RESULT_MISMATCH",
+      "tool_invocations": 1,
+      "temporary_drafts": 0,
+      "model_calls": 0,
+      "events": [
+        {
+          "node": "ingest",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "wiki",
+          "status": "pass",
+          "detail": "Persisted content authored with Codex; this replay makes no model calls."
+        },
+        {
+          "node": "query",
+          "status": "pass",
+          "detail": "Explicit Wiki routes define the evidence pack."
+        },
+        {
+          "node": "evidence_gate",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "plan_gate",
+          "status": "pass",
+          "detail": null
+        },
+        {
+          "node": "research_tool",
+          "status": "pass",
+          "detail": "Computed both declared synthetic fixtures; no model or broker calls."
+        },
+        {
+          "node": "result_gate",
+          "status": "rejected",
+          "detail": "RESULT_MISMATCH"
+        }
+      ]
+    }
+  ]
+}

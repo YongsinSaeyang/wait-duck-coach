@@ -1,0 +1,15 @@
+{
+  "data_type": "synthetic",
+  "source_url": null,
+  "retrieved_at": null,
+  "created_on": "2026-11-17",
+  "rows": 92,
+  "columns": [
+    "date",
+    "open",
+    "close"
+  ],
+  "sha256": "f17948356ed727d2fe825030838e4109760fbbcac1c63f6d81beea4d3a69e60f",
+  "license": "CC0-1.0 (this project numeric fixture)",
+  "generated_by": "Same fixed development prefix as primary; mixed-sign final segment for execution coverage testing, not evidence of market performance."
+}

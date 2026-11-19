@@ -37,6 +37,16 @@ jobs:
           python scripts/build.py
           python scripts/check.py
           git diff --exit-code -- index.html rules.html notes assets/notes.json
+      - name: Validate Week 10 Agent and quantitative research lesson
+        working-directory: agent-quant-wiki
+        run: |
+          python scripts/research.py --generate-data --check
+          python scripts/research.py --check
+          python scripts/pipeline.py --check
+          python scripts/check.py
+          python -m unittest discover -s tests -v
+          python scripts/build.py
+          git diff --exit-code -- index.html slides.html evidence.html wiki sources runs/traceability.json
       - name: Stage the complete static site
         if: github.event_name != 'pull_request'
         working-directory: .
@@ -49,6 +59,7 @@ jobs:
           for name in ['index.html', 'README.md', 'AGENTS.md', '.nojekyll']:
               shutil.copy2(name, destination / name)
           shutil.copytree('research-notes', destination / 'research-notes', ignore=shutil.ignore_patterns('__pycache__'))
+          shutil.copytree('agent-quant-wiki', destination / 'agent-quant-wiki', ignore=shutil.ignore_patterns('__pycache__'))
           PY
       - name: Package the validated site
         if: github.event_name != 'pull_request'

@@ -1,0 +1,15 @@
+{
+  "data_type": "synthetic",
+  "source_url": null,
+  "retrieved_at": null,
+  "created_on": "2026-11-17",
+  "rows": 92,
+  "columns": [
+    "date",
+    "open",
+    "close"
+  ],
+  "sha256": "b92d7c020a9025a93aaeae32ccc0f101ec6cc1ec159a4d95fc0a3d7df9397faa",
+  "license": "CC0-1.0 (this project numeric fixture)",
+  "generated_by": "Fixed return and gap lists in scripts/research.py; no randomness. Dates are synthetic business-day labels, not an exchange calendar."
+}

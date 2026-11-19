@@ -1,0 +1,1133 @@
+{
+  "fixture": "coverage",
+  "data_type": "synthetic",
+  "scope": "Fixed research workflow demonstration, not real market evidence",
+  "initial_cash": "100000.00",
+  "bars": 92,
+  "folds": [
+    {
+      "train": [
+        0,
+        22
+      ],
+      "gap": [
+        22,
+        24
+      ],
+      "validation": [
+        24,
+        36
+      ]
+    },
+    {
+      "train": [
+        0,
+        34
+      ],
+      "gap": [
+        34,
+        36
+      ],
+      "validation": [
+        36,
+        48
+      ]
+    },
+    {
+      "train": [
+        0,
+        46
+      ],
+      "gap": [
+        46,
+        48
+      ],
+      "validation": [
+        48,
+        60
+      ]
+    }
+  ],
+  "development_span": [
+    0,
+    60
+  ],
+  "embargo": [
+    60,
+    62
+  ],
+  "final_test": [
+    62,
+    92
+  ],
+  "development": [
+    {
+      "pair": [
+        3,
+        7
+      ],
+      "fold_returns_pct": [
+        -0.02529,
+        -0.00512,
+        0.48969
+      ],
+      "selection_score_pct": 0.4591323864597412
+    },
+    {
+      "pair": [
+        5,
+        12
+      ],
+      "fold_returns_pct": [
+        -1.62133,
+        0.78436,
+        0.0
+      ],
+      "selection_score_pct": -0.849687063988
+    },
+    {
+      "pair": [
+        8,
+        20
+      ],
+      "fold_returns_pct": [
+        -1.62133,
+        -1.42569,
+        0.0
+      ],
+      "selection_score_pct": -3.023904860323
+    }
+  ],
+  "selected_pair": [
+    3,
+    7
+  ],
+  "selection_rule": "Highest compounded validation-fold return at 0.1% per side; final test is not consulted",
+  "final_test_scenarios": [
+    {
+      "fee_per_side": "0",
+      "pair": [
+        3,
+        7
+      ],
+      "range": [
+        62,
+        92
+      ],
+      "ending_equity": "96402.62",
+      "return_pct": -3.59738,
+      "max_drawdown_pct": 6.59992,
+      "round_trips": 14,
+      "total_fees": "0.00",
+      "ledger": [
+        {
+          "index": 63,
+          "date": "2026-08-27",
+          "signal_available": "2026-08-26 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 897,
+          "entry_price": "111.48",
+          "exit_price": "107.58",
+          "fee": "0.00",
+          "cash_flow": "-3498.30"
+        },
+        {
+          "index": 64,
+          "date": "2026-08-28",
+          "signal_available": "2026-08-27 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 897,
+          "entry_price": "107.47",
+          "exit_price": "105.32",
+          "fee": "0.00",
+          "cash_flow": "-1928.55"
+        },
+        {
+          "index": 70,
+          "date": "2026-09-07",
+          "signal_available": "2026-09-04 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 900,
+          "entry_price": "105.01",
+          "exit_price": "107.11",
+          "fee": "0.00",
+          "cash_flow": "1890.00"
+        },
+        {
+          "index": 71,
+          "date": "2026-09-08",
+          "signal_available": "2026-09-07 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 900,
+          "entry_price": "107.11",
+          "exit_price": "108.40",
+          "fee": "0.00",
+          "cash_flow": "1161.00"
+        },
+        {
+          "index": 72,
+          "date": "2026-09-09",
+          "signal_available": "2026-09-08 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 899,
+          "entry_price": "108.51",
+          "exit_price": "110.46",
+          "fee": "0.00",
+          "cash_flow": "1753.05"
+        },
+        {
+          "index": 73,
+          "date": "2026-09-10",
+          "signal_available": "2026-09-09 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 900,
+          "entry_price": "110.35",
+          "exit_price": "106.49",
+          "fee": "0.00",
+          "cash_flow": "-3474.00"
+        },
+        {
+          "index": 74,
+          "date": "2026-09-11",
+          "signal_available": "2026-09-10 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 900,
+          "entry_price": "106.49",
+          "exit_price": "104.36",
+          "fee": "0.00",
+          "cash_flow": "-1917.00"
+        },
+        {
+          "index": 80,
+          "date": "2026-09-21",
+          "signal_available": "2026-09-18 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 903,
+          "entry_price": "104.06",
+          "exit_price": "106.14",
+          "fee": "0.00",
+          "cash_flow": "1878.24"
+        },
+        {
+          "index": 81,
+          "date": "2026-09-22",
+          "signal_available": "2026-09-21 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 902,
+          "entry_price": "106.25",
+          "exit_price": "107.53",
+          "fee": "0.00",
+          "cash_flow": "1154.56"
+        },
+        {
+          "index": 82,
+          "date": "2026-09-23",
+          "signal_available": "2026-09-22 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 903,
+          "entry_price": "107.42",
+          "exit_price": "109.35",
+          "fee": "0.00",
+          "cash_flow": "1742.79"
+        },
+        {
+          "index": 83,
+          "date": "2026-09-24",
+          "signal_available": "2026-09-23 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 903,
+          "entry_price": "109.35",
+          "exit_price": "105.52",
+          "fee": "0.00",
+          "cash_flow": "-3458.49"
+        },
+        {
+          "index": 84,
+          "date": "2026-09-25",
+          "signal_available": "2026-09-24 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 902,
+          "entry_price": "105.63",
+          "exit_price": "103.52",
+          "fee": "0.00",
+          "cash_flow": "-1903.22"
+        },
+        {
+          "index": 90,
+          "date": "2026-10-05",
+          "signal_available": "2026-10-02 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 904,
+          "entry_price": "103.22",
+          "exit_price": "105.28",
+          "fee": "0.00",
+          "cash_flow": "1862.24"
+        },
+        {
+          "index": 91,
+          "date": "2026-10-06",
+          "signal_available": "2026-10-05 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 905,
+          "entry_price": "105.17",
+          "exit_price": "106.43",
+          "fee": "0.00",
+          "cash_flow": "1140.30"
+        }
+      ],
+      "curve": [
+        {
+          "index": 62,
+          "date": "2026-08-26",
+          "equity": "100000.00"
+        },
+        {
+          "index": 63,
+          "date": "2026-08-27",
+          "equity": "96501.70"
+        },
+        {
+          "index": 64,
+          "date": "2026-08-28",
+          "equity": "94573.15"
+        },
+        {
+          "index": 65,
+          "date": "2026-08-31",
+          "equity": "94573.15"
+        },
+        {
+          "index": 66,
+          "date": "2026-09-01",
+          "equity": "94573.15"
+        },
+        {
+          "index": 67,
+          "date": "2026-09-02",
+          "equity": "94573.15"
+        },
+        {
+          "index": 68,
+          "date": "2026-09-03",
+          "equity": "94573.15"
+        },
+        {
+          "index": 69,
+          "date": "2026-09-04",
+          "equity": "94573.15"
+        },
+        {
+          "index": 70,
+          "date": "2026-09-07",
+          "equity": "96463.15"
+        },
+        {
+          "index": 71,
+          "date": "2026-09-08",
+          "equity": "97624.15"
+        },
+        {
+          "index": 72,
+          "date": "2026-09-09",
+          "equity": "99377.20"
+        },
+        {
+          "index": 73,
+          "date": "2026-09-10",
+          "equity": "95903.20"
+        },
+        {
+          "index": 74,
+          "date": "2026-09-11",
+          "equity": "93986.20"
+        },
+        {
+          "index": 75,
+          "date": "2026-09-14",
+          "equity": "93986.20"
+        },
+        {
+          "index": 76,
+          "date": "2026-09-15",
+          "equity": "93986.20"
+        },
+        {
+          "index": 77,
+          "date": "2026-09-16",
+          "equity": "93986.20"
+        },
+        {
+          "index": 78,
+          "date": "2026-09-17",
+          "equity": "93986.20"
+        },
+        {
+          "index": 79,
+          "date": "2026-09-18",
+          "equity": "93986.20"
+        },
+        {
+          "index": 80,
+          "date": "2026-09-21",
+          "equity": "95864.44"
+        },
+        {
+          "index": 81,
+          "date": "2026-09-22",
+          "equity": "97019.00"
+        },
+        {
+          "index": 82,
+          "date": "2026-09-23",
+          "equity": "98761.79"
+        },
+        {
+          "index": 83,
+          "date": "2026-09-24",
+          "equity": "95303.30"
+        },
+        {
+          "index": 84,
+          "date": "2026-09-25",
+          "equity": "93400.08"
+        },
+        {
+          "index": 85,
+          "date": "2026-09-28",
+          "equity": "93400.08"
+        },
+        {
+          "index": 86,
+          "date": "2026-09-29",
+          "equity": "93400.08"
+        },
+        {
+          "index": 87,
+          "date": "2026-09-30",
+          "equity": "93400.08"
+        },
+        {
+          "index": 88,
+          "date": "2026-10-01",
+          "equity": "93400.08"
+        },
+        {
+          "index": 89,
+          "date": "2026-10-02",
+          "equity": "93400.08"
+        },
+        {
+          "index": 90,
+          "date": "2026-10-05",
+          "equity": "95262.32"
+        },
+        {
+          "index": 91,
+          "date": "2026-10-06",
+          "equity": "96402.62"
+        }
+      ]
+    },
+    {
+      "fee_per_side": "0.001",
+      "pair": [
+        3,
+        7
+      ],
+      "range": [
+        62,
+        92
+      ],
+      "ending_equity": "93745.79",
+      "return_pct": -6.25421,
+      "max_drawdown_pct": 8.81088,
+      "round_trips": 14,
+      "total_fees": "2657.84",
+      "ledger": [
+        {
+          "index": 63,
+          "date": "2026-08-27",
+          "signal_available": "2026-08-26 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 896,
+          "entry_price": "111.48",
+          "exit_price": "107.58",
+          "fee": "196.28",
+          "cash_flow": "-3690.68"
+        },
+        {
+          "index": 64,
+          "date": "2026-08-28",
+          "signal_available": "2026-08-27 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 895,
+          "entry_price": "107.47",
+          "exit_price": "105.32",
+          "fee": "190.45",
+          "cash_flow": "-2114.70"
+        },
+        {
+          "index": 70,
+          "date": "2026-09-07",
+          "signal_available": "2026-09-04 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 896,
+          "entry_price": "105.01",
+          "exit_price": "107.11",
+          "fee": "190.06",
+          "cash_flow": "1691.54"
+        },
+        {
+          "index": 71,
+          "date": "2026-09-08",
+          "signal_available": "2026-09-07 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 894,
+          "entry_price": "107.11",
+          "exit_price": "108.40",
+          "fee": "192.67",
+          "cash_flow": "960.59"
+        },
+        {
+          "index": 72,
+          "date": "2026-09-09",
+          "signal_available": "2026-09-08 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 891,
+          "entry_price": "108.51",
+          "exit_price": "110.46",
+          "fee": "195.10",
+          "cash_flow": "1542.35"
+        },
+        {
+          "index": 73,
+          "date": "2026-09-10",
+          "signal_available": "2026-09-09 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 890,
+          "entry_price": "110.35",
+          "exit_price": "106.49",
+          "fee": "192.99",
+          "cash_flow": "-3628.39"
+        },
+        {
+          "index": 74,
+          "date": "2026-09-11",
+          "signal_available": "2026-09-10 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 888,
+          "entry_price": "106.49",
+          "exit_price": "104.36",
+          "fee": "187.23",
+          "cash_flow": "-2078.67"
+        },
+        {
+          "index": 80,
+          "date": "2026-09-21",
+          "signal_available": "2026-09-18 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 889,
+          "entry_price": "104.06",
+          "exit_price": "106.14",
+          "fee": "186.87",
+          "cash_flow": "1662.25"
+        },
+        {
+          "index": 81,
+          "date": "2026-09-22",
+          "signal_available": "2026-09-21 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 887,
+          "entry_price": "106.25",
+          "exit_price": "107.53",
+          "fee": "189.62",
+          "cash_flow": "945.74"
+        },
+        {
+          "index": 82,
+          "date": "2026-09-23",
+          "signal_available": "2026-09-22 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 886,
+          "entry_price": "107.42",
+          "exit_price": "109.35",
+          "fee": "192.05",
+          "cash_flow": "1517.93"
+        },
+        {
+          "index": 83,
+          "date": "2026-09-24",
+          "signal_available": "2026-09-23 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 884,
+          "entry_price": "109.35",
+          "exit_price": "105.52",
+          "fee": "189.95",
+          "cash_flow": "-3575.67"
+        },
+        {
+          "index": 84,
+          "date": "2026-09-25",
+          "signal_available": "2026-09-24 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 881,
+          "entry_price": "105.63",
+          "exit_price": "103.52",
+          "fee": "184.26",
+          "cash_flow": "-2043.17"
+        },
+        {
+          "index": 90,
+          "date": "2026-10-05",
+          "signal_available": "2026-10-02 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 882,
+          "entry_price": "103.22",
+          "exit_price": "105.28",
+          "fee": "183.90",
+          "cash_flow": "1633.02"
+        },
+        {
+          "index": 91,
+          "date": "2026-10-06",
+          "signal_available": "2026-10-05 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 881,
+          "entry_price": "105.17",
+          "exit_price": "106.43",
+          "fee": "186.41",
+          "cash_flow": "923.65"
+        }
+      ],
+      "curve": [
+        {
+          "index": 62,
+          "date": "2026-08-26",
+          "equity": "100000.00"
+        },
+        {
+          "index": 63,
+          "date": "2026-08-27",
+          "equity": "96309.32"
+        },
+        {
+          "index": 64,
+          "date": "2026-08-28",
+          "equity": "94194.62"
+        },
+        {
+          "index": 65,
+          "date": "2026-08-31",
+          "equity": "94194.62"
+        },
+        {
+          "index": 66,
+          "date": "2026-09-01",
+          "equity": "94194.62"
+        },
+        {
+          "index": 67,
+          "date": "2026-09-02",
+          "equity": "94194.62"
+        },
+        {
+          "index": 68,
+          "date": "2026-09-03",
+          "equity": "94194.62"
+        },
+        {
+          "index": 69,
+          "date": "2026-09-04",
+          "equity": "94194.62"
+        },
+        {
+          "index": 70,
+          "date": "2026-09-07",
+          "equity": "95886.16"
+        },
+        {
+          "index": 71,
+          "date": "2026-09-08",
+          "equity": "96846.75"
+        },
+        {
+          "index": 72,
+          "date": "2026-09-09",
+          "equity": "98389.10"
+        },
+        {
+          "index": 73,
+          "date": "2026-09-10",
+          "equity": "94760.71"
+        },
+        {
+          "index": 74,
+          "date": "2026-09-11",
+          "equity": "92682.04"
+        },
+        {
+          "index": 75,
+          "date": "2026-09-14",
+          "equity": "92682.04"
+        },
+        {
+          "index": 76,
+          "date": "2026-09-15",
+          "equity": "92682.04"
+        },
+        {
+          "index": 77,
+          "date": "2026-09-16",
+          "equity": "92682.04"
+        },
+        {
+          "index": 78,
+          "date": "2026-09-17",
+          "equity": "92682.04"
+        },
+        {
+          "index": 79,
+          "date": "2026-09-18",
+          "equity": "92682.04"
+        },
+        {
+          "index": 80,
+          "date": "2026-09-21",
+          "equity": "94344.29"
+        },
+        {
+          "index": 81,
+          "date": "2026-09-22",
+          "equity": "95290.03"
+        },
+        {
+          "index": 82,
+          "date": "2026-09-23",
+          "equity": "96807.96"
+        },
+        {
+          "index": 83,
+          "date": "2026-09-24",
+          "equity": "93232.29"
+        },
+        {
+          "index": 84,
+          "date": "2026-09-25",
+          "equity": "91189.12"
+        },
+        {
+          "index": 85,
+          "date": "2026-09-28",
+          "equity": "91189.12"
+        },
+        {
+          "index": 86,
+          "date": "2026-09-29",
+          "equity": "91189.12"
+        },
+        {
+          "index": 87,
+          "date": "2026-09-30",
+          "equity": "91189.12"
+        },
+        {
+          "index": 88,
+          "date": "2026-10-01",
+          "equity": "91189.12"
+        },
+        {
+          "index": 89,
+          "date": "2026-10-02",
+          "equity": "91189.12"
+        },
+        {
+          "index": 90,
+          "date": "2026-10-05",
+          "equity": "92822.14"
+        },
+        {
+          "index": 91,
+          "date": "2026-10-06",
+          "equity": "93745.79"
+        }
+      ]
+    },
+    {
+      "fee_per_side": "0.003",
+      "pair": [
+        3,
+        7
+      ],
+      "range": [
+        62,
+        92
+      ],
+      "ending_equity": "88638.51",
+      "return_pct": -11.36149,
+      "max_drawdown_pct": 13.08708,
+      "round_trips": 14,
+      "total_fees": "7756.61",
+      "ledger": [
+        {
+          "index": 63,
+          "date": "2026-08-27",
+          "signal_available": "2026-08-26 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 894,
+          "entry_price": "111.48",
+          "exit_price": "107.58",
+          "fee": "587.52",
+          "cash_flow": "-4074.12"
+        },
+        {
+          "index": 64,
+          "date": "2026-08-28",
+          "signal_available": "2026-08-27 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 889,
+          "entry_price": "107.47",
+          "exit_price": "105.32",
+          "fee": "567.51",
+          "cash_flow": "-2478.86"
+        },
+        {
+          "index": 70,
+          "date": "2026-09-07",
+          "signal_available": "2026-09-04 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 887,
+          "entry_price": "105.01",
+          "exit_price": "107.11",
+          "fee": "564.45",
+          "cash_flow": "1298.25"
+        },
+        {
+          "index": 71,
+          "date": "2026-09-08",
+          "signal_available": "2026-09-07 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 881,
+          "entry_price": "107.11",
+          "exit_price": "108.40",
+          "fee": "569.59",
+          "cash_flow": "566.90"
+        },
+        {
+          "index": 72,
+          "date": "2026-09-09",
+          "signal_available": "2026-09-08 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 875,
+          "entry_price": "108.51",
+          "exit_price": "110.46",
+          "fee": "574.80",
+          "cash_flow": "1131.45"
+        },
+        {
+          "index": 73,
+          "date": "2026-09-10",
+          "signal_available": "2026-09-09 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 871,
+          "entry_price": "110.35",
+          "exit_price": "106.49",
+          "fee": "566.60",
+          "cash_flow": "-3928.66"
+        },
+        {
+          "index": 74,
+          "date": "2026-09-11",
+          "signal_available": "2026-09-10 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 866,
+          "entry_price": "106.49",
+          "exit_price": "104.36",
+          "fee": "547.79",
+          "cash_flow": "-2392.37"
+        },
+        {
+          "index": 80,
+          "date": "2026-09-21",
+          "signal_available": "2026-09-18 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 863,
+          "entry_price": "104.06",
+          "exit_price": "106.14",
+          "fee": "544.21",
+          "cash_flow": "1250.83"
+        },
+        {
+          "index": 81,
+          "date": "2026-09-22",
+          "signal_available": "2026-09-21 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 857,
+          "entry_price": "106.25",
+          "exit_price": "107.53",
+          "fee": "549.63",
+          "cash_flow": "547.33"
+        },
+        {
+          "index": 82,
+          "date": "2026-09-23",
+          "signal_available": "2026-09-22 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 853,
+          "entry_price": "107.42",
+          "exit_price": "109.35",
+          "fee": "554.72",
+          "cash_flow": "1091.57"
+        },
+        {
+          "index": 83,
+          "date": "2026-09-24",
+          "signal_available": "2026-09-23 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 848,
+          "entry_price": "109.35",
+          "exit_price": "105.52",
+          "fee": "546.63",
+          "cash_flow": "-3794.47"
+        },
+        {
+          "index": 84,
+          "date": "2026-09-25",
+          "signal_available": "2026-09-24 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 842,
+          "entry_price": "105.63",
+          "exit_price": "103.52",
+          "fee": "528.31",
+          "cash_flow": "-2304.93"
+        },
+        {
+          "index": 90,
+          "date": "2026-10-05",
+          "signal_available": "2026-10-02 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 839,
+          "entry_price": "103.22",
+          "exit_price": "105.28",
+          "fee": "524.79",
+          "cash_flow": "1203.55"
+        },
+        {
+          "index": 91,
+          "date": "2026-10-06",
+          "signal_available": "2026-10-05 close",
+          "entry": "open",
+          "exit": "same bar close",
+          "quantity": 835,
+          "entry_price": "105.17",
+          "exit_price": "106.43",
+          "fee": "530.06",
+          "cash_flow": "522.04"
+        }
+      ],
+      "curve": [
+        {
+          "index": 62,
+          "date": "2026-08-26",
+          "equity": "100000.00"
+        },
+        {
+          "index": 63,
+          "date": "2026-08-27",
+          "equity": "95925.88"
+        },
+        {
+          "index": 64,
+          "date": "2026-08-28",
+          "equity": "93447.02"
+        },
+        {
+          "index": 65,
+          "date": "2026-08-31",
+          "equity": "93447.02"
+        },
+        {
+          "index": 66,
+          "date": "2026-09-01",
+          "equity": "93447.02"
+        },
+        {
+          "index": 67,
+          "date": "2026-09-02",
+          "equity": "93447.02"
+        },
+        {
+          "index": 68,
+          "date": "2026-09-03",
+          "equity": "93447.02"
+        },
+        {
+          "index": 69,
+          "date": "2026-09-04",
+          "equity": "93447.02"
+        },
+        {
+          "index": 70,
+          "date": "2026-09-07",
+          "equity": "94745.27"
+        },
+        {
+          "index": 71,
+          "date": "2026-09-08",
+          "equity": "95312.17"
+        },
+        {
+          "index": 72,
+          "date": "2026-09-09",
+          "equity": "96443.62"
+        },
+        {
+          "index": 73,
+          "date": "2026-09-10",
+          "equity": "92514.96"
+        },
+        {
+          "index": 74,
+          "date": "2026-09-11",
+          "equity": "90122.59"
+        },
+        {
+          "index": 75,
+          "date": "2026-09-14",
+          "equity": "90122.59"
+        },
+        {
+          "index": 76,
+          "date": "2026-09-15",
+          "equity": "90122.59"
+        },
+        {
+          "index": 77,
+          "date": "2026-09-16",
+          "equity": "90122.59"
+        },
+        {
+          "index": 78,
+          "date": "2026-09-17",
+          "equity": "90122.59"
+        },
+        {
+          "index": 79,
+          "date": "2026-09-18",
+          "equity": "90122.59"
+        },
+        {
+          "index": 80,
+          "date": "2026-09-21",
+          "equity": "91373.42"
+        },
+        {
+          "index": 81,
+          "date": "2026-09-22",
+          "equity": "91920.75"
+        },
+        {
+          "index": 82,
+          "date": "2026-09-23",
+          "equity": "93012.32"
+        },
+        {
+          "index": 83,
+          "date": "2026-09-24",
+          "equity": "89217.85"
+        },
+        {
+          "index": 84,
+          "date": "2026-09-25",
+          "equity": "86912.92"
+        },
+        {
+          "index": 85,
+          "date": "2026-09-28",
+          "equity": "86912.92"
+        },
+        {
+          "index": 86,
+          "date": "2026-09-29",
+          "equity": "86912.92"
+        },
+        {
+          "index": 87,
+          "date": "2026-09-30",
+          "equity": "86912.92"
+        },
+        {
+          "index": 88,
+          "date": "2026-10-01",
+          "equity": "86912.92"
+        },
+        {
+          "index": 89,
+          "date": "2026-10-02",
+          "equity": "86912.92"
+        },
+        {
+          "index": 90,
+          "date": "2026-10-05",
+          "equity": "88116.47"
+        },
+        {
+          "index": 91,
+          "date": "2026-10-06",
+          "equity": "88638.51"
+        }
+      ]
+    }
+  ],
+  "execution": "Prior-close SMA decides next-open entry; every position exits same bar close; integer units; fees ROUND_HALF_UP to cents.",
+  "not_modelled": [
+    "tax",
+    "minimum commission",
+    "slippage",
+    "partial fills",
+    "price limits",
+    "dividends",
+    "actual calendar"
+  ],
+  "model_calls": 0
+}

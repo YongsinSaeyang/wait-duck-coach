@@ -1,0 +1,138 @@
+[
+  {
+    "id": "C01",
+    "kind": "source",
+    "text": "Workflow 依預定路徑編排；Agent 由模型動態決定過程與工具使用。",
+    "sources": [
+      "S01",
+      "S02"
+    ],
+    "wiki": "W01"
+  },
+  {
+    "id": "C02",
+    "kind": "source",
+    "text": "Agent 需根據環境回饋調整行動，並保留停止條件。",
+    "sources": [
+      "S01"
+    ],
+    "wiki": "W02"
+  },
+  {
+    "id": "C03",
+    "kind": "source",
+    "text": "State、節點與條件邊可以描述固定流程及評估後返回生成的迴圈。",
+    "sources": [
+      "S02"
+    ],
+    "wiki": "W03"
+  },
+  {
+    "id": "C04",
+    "kind": "source",
+    "text": "回測須明列成本與成交假設；進出場費用不能只算一邊。",
+    "sources": [
+      "S03"
+    ],
+    "wiki": "W05"
+  },
+  {
+    "id": "C05",
+    "kind": "source",
+    "text": "未來位移或全樣本統計可將尚未可用的資訊帶入回測訊號。",
+    "sources": [
+      "S04"
+    ],
+    "wiki": "W04"
+  },
+  {
+    "id": "C06",
+    "kind": "source",
+    "text": "時間序列切分保留先後順序；gap 是測試前排除的樣本間隔。",
+    "sources": [
+      "S05"
+    ],
+    "wiki": "W04"
+  },
+  {
+    "id": "C07",
+    "kind": "source",
+    "text": "同一資料反覆試策略變形會帶入多重測試與選擇偏誤。",
+    "sources": [
+      "S06"
+    ],
+    "wiki": "W06"
+  },
+  {
+    "id": "C08",
+    "kind": "source",
+    "text": "LLM 的訓練資料與回測期間重疊時，可能出現未來知識或公司背景干擾。",
+    "sources": [
+      "S07"
+    ],
+    "wiki": "W07"
+  },
+  {
+    "id": "D01",
+    "kind": "design",
+    "text": "本作以七份實際閱讀的章節整理建立 Wiki，使用本地詞彙查詢，不宣稱有向量資料庫。",
+    "sources": [],
+    "wiki": "W03"
+  },
+  {
+    "id": "D02",
+    "kind": "design",
+    "text": "工具限定資料檢查、回測與報表；費率、時點、範圍先驗證，沒有下單工具。",
+    "sources": [],
+    "wiki": "W02"
+  },
+  {
+    "id": "D03",
+    "kind": "design",
+    "text": "先檢查證據與研究規格，再計算、建置；修訂最多兩次，仍失敗交人工。",
+    "sources": [],
+    "wiki": "W08"
+  },
+  {
+    "id": "D04",
+    "kind": "design",
+    "text": "選參數只用開發期驗證；活動度不足時停止解讀績效，保留所有嘗試。",
+    "sources": [],
+    "wiki": "W06"
+  },
+  {
+    "id": "Q01",
+    "kind": "synthetic",
+    "text": "主要合成資料的最後測試區間沒有交易，不能據此推論策略風險或獲利。",
+    "sources": [],
+    "wiki": "W08"
+  },
+  {
+    "id": "Q02",
+    "kind": "synthetic",
+    "text": "額外 coverage 合成資料只驗證交易與成本機制，不替代主要資料的樣本外研究。",
+    "sources": [],
+    "wiki": "W05"
+  },
+  {
+    "id": "Q03",
+    "kind": "synthetic",
+    "text": "三組候選均線只用三段開發期驗證評分，凍結參數後才讀最後測試。",
+    "sources": [],
+    "wiki": "W06"
+  },
+  {
+    "id": "R01",
+    "kind": "observation",
+    "text": "一份作者頁 PDF 取得逾時；改選可讀的同作者群文章，未把逾時文件計入 ingest。",
+    "sources": [],
+    "wiki": "W08"
+  },
+  {
+    "id": "R02",
+    "kind": "observation",
+    "text": "活動度檢查發現主要測試期沒有交易；保留結果並另增 coverage fixture。",
+    "sources": [],
+    "wiki": "W08"
+  }
+]

@@ -1,0 +1,276 @@
+[
+  {
+    "slide": "s01",
+    "query": "一個可查來源、可驗算、可回放的研究流程",
+    "retrieval": "explicit Wiki ID routing, not semantic/vector retrieval",
+    "wiki": [
+      "agent-workflow",
+      "wiki-evidence"
+    ],
+    "claims": [
+      "C01",
+      "D01"
+    ],
+    "sources": [
+      "S01",
+      "S02"
+    ]
+  },
+  {
+    "slide": "s02",
+    "query": "問題先限定，工具才有可驗收的工作",
+    "retrieval": "explicit Wiki ID routing, not semantic/vector retrieval",
+    "wiki": [
+      "tool-contract",
+      "selection-bias"
+    ],
+    "claims": [
+      "D02",
+      "D04"
+    ],
+    "sources": []
+  },
+  {
+    "slide": "s03",
+    "query": "哪一部分由模型決定？",
+    "retrieval": "explicit Wiki ID routing, not semantic/vector retrieval",
+    "wiki": [
+      "agent-workflow",
+      "tool-contract"
+    ],
+    "claims": [
+      "C01",
+      "C02"
+    ],
+    "sources": [
+      "S01",
+      "S02"
+    ]
+  },
+  {
+    "slide": "s04",
+    "query": "模型提出需求，計算工具返回可查驗的結果",
+    "retrieval": "explicit Wiki ID routing, not semantic/vector retrieval",
+    "wiki": [
+      "tool-contract"
+    ],
+    "claims": [
+      "C02",
+      "D02"
+    ],
+    "sources": [
+      "S01"
+    ]
+  },
+  {
+    "slide": "s05",
+    "query": "實際讀取的章節先形成來源整理",
+    "retrieval": "explicit Wiki ID routing, not semantic/vector retrieval",
+    "wiki": [
+      "wiki-evidence"
+    ],
+    "claims": [
+      "D01"
+    ],
+    "sources": []
+  },
+  {
+    "slide": "s06",
+    "query": "投影片 → Wiki → claim → 原始文件",
+    "retrieval": "explicit Wiki ID routing, not semantic/vector retrieval",
+    "wiki": [
+      "wiki-evidence"
+    ],
+    "claims": [
+      "C03",
+      "D01"
+    ],
+    "sources": [
+      "S02"
+    ]
+  },
+  {
+    "slide": "s07",
+    "query": "檢查失敗會回到對應節點",
+    "retrieval": "explicit Wiki ID routing, not semantic/vector retrieval",
+    "wiki": [
+      "wiki-evidence",
+      "audit-loop"
+    ],
+    "claims": [
+      "C03",
+      "D03"
+    ],
+    "sources": [
+      "S02"
+    ]
+  },
+  {
+    "slide": "s08",
+    "query": "先驗輸入，不讓錯誤進入回測",
+    "retrieval": "explicit Wiki ID routing, not semantic/vector retrieval",
+    "wiki": [
+      "tool-contract",
+      "audit-loop"
+    ],
+    "claims": [
+      "D02",
+      "D03"
+    ],
+    "sources": []
+  },
+  {
+    "slide": "s09",
+    "query": "當根尚未完成的價格不能生成先前訊號",
+    "retrieval": "explicit Wiki ID routing, not semantic/vector retrieval",
+    "wiki": [
+      "temporal-validation"
+    ],
+    "claims": [
+      "C05",
+      "C06"
+    ],
+    "sources": [
+      "S04",
+      "S05"
+    ]
+  },
+  {
+    "slide": "s10",
+    "query": "行情切分正確，仍要檢查模型知識的邊界",
+    "retrieval": "explicit Wiki ID routing, not semantic/vector retrieval",
+    "wiki": [
+      "llm-contamination",
+      "temporal-validation"
+    ],
+    "claims": [
+      "C08",
+      "C05"
+    ],
+    "sources": [
+      "S04",
+      "S07"
+    ]
+  },
+  {
+    "slide": "s11",
+    "query": "三段驗證都發生在最後測試之前",
+    "retrieval": "explicit Wiki ID routing, not semantic/vector retrieval",
+    "wiki": [
+      "temporal-validation",
+      "selection-bias"
+    ],
+    "claims": [
+      "C06",
+      "Q03"
+    ],
+    "sources": [
+      "S05"
+    ]
+  },
+  {
+    "slide": "s12",
+    "query": "所有候選分數一起保存",
+    "retrieval": "explicit Wiki ID routing, not semantic/vector retrieval",
+    "wiki": [
+      "selection-bias"
+    ],
+    "claims": [
+      "C07",
+      "Q03"
+    ],
+    "sources": [
+      "S06"
+    ]
+  },
+  {
+    "slide": "s13",
+    "query": "主要測試期沒有任何進場",
+    "retrieval": "explicit Wiki ID routing, not semantic/vector retrieval",
+    "wiki": [
+      "audit-loop"
+    ],
+    "claims": [
+      "Q01",
+      "R02"
+    ],
+    "sources": []
+  },
+  {
+    "slide": "s14",
+    "query": "額外合成 fixture 只負責觸發交易分支",
+    "retrieval": "explicit Wiki ID routing, not semantic/vector retrieval",
+    "wiki": [
+      "cost-mechanics"
+    ],
+    "claims": [
+      "C04",
+      "Q02"
+    ],
+    "sources": [
+      "S03"
+    ]
+  },
+  {
+    "slide": "s15",
+    "query": "先擋無依據主張，再建置教材",
+    "retrieval": "explicit Wiki ID routing, not semantic/vector retrieval",
+    "wiki": [
+      "audit-loop",
+      "wiki-evidence"
+    ],
+    "claims": [
+      "D03",
+      "D01"
+    ],
+    "sources": []
+  },
+  {
+    "slide": "s16",
+    "query": "同一組故意錯誤，在不同位置被拒絕",
+    "retrieval": "explicit Wiki ID routing, not semantic/vector retrieval",
+    "wiki": [
+      "audit-loop"
+    ],
+    "claims": [
+      "D03"
+    ],
+    "sources": []
+  },
+  {
+    "slide": "s17",
+    "query": "取得資料與活動度各出現一次問題",
+    "retrieval": "explicit Wiki ID routing, not semantic/vector retrieval",
+    "wiki": [
+      "audit-loop"
+    ],
+    "claims": [
+      "R01",
+      "R02",
+      "D03"
+    ],
+    "sources": []
+  },
+  {
+    "slide": "s18",
+    "query": "回答檢查題，再回到 Wiki 查證",
+    "retrieval": "explicit Wiki ID routing, not semantic/vector retrieval",
+    "wiki": [
+      "agent-workflow",
+      "llm-contamination",
+      "audit-loop",
+      "cost-mechanics"
+    ],
+    "claims": [
+      "C01",
+      "C08",
+      "Q01",
+      "Q02"
+    ],
+    "sources": [
+      "S01",
+      "S02",
+      "S07"
+    ]
+  }
+]

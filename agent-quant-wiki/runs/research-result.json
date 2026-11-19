@@ -1,0 +1,626 @@
+{
+  "fixture": "primary",
+  "data_type": "synthetic",
+  "scope": "Fixed research workflow demonstration, not real market evidence",
+  "initial_cash": "100000.00",
+  "bars": 92,
+  "folds": [
+    {
+      "train": [
+        0,
+        22
+      ],
+      "gap": [
+        22,
+        24
+      ],
+      "validation": [
+        24,
+        36
+      ]
+    },
+    {
+      "train": [
+        0,
+        34
+      ],
+      "gap": [
+        34,
+        36
+      ],
+      "validation": [
+        36,
+        48
+      ]
+    },
+    {
+      "train": [
+        0,
+        46
+      ],
+      "gap": [
+        46,
+        48
+      ],
+      "validation": [
+        48,
+        60
+      ]
+    }
+  ],
+  "development_span": [
+    0,
+    60
+  ],
+  "embargo": [
+    60,
+    62
+  ],
+  "final_test": [
+    62,
+    92
+  ],
+  "development": [
+    {
+      "pair": [
+        3,
+        7
+      ],
+      "fold_returns_pct": [
+        -0.02529,
+        -0.00512,
+        0.48969
+      ],
+      "selection_score_pct": 0.4591323864597412
+    },
+    {
+      "pair": [
+        5,
+        12
+      ],
+      "fold_returns_pct": [
+        -1.62133,
+        0.78436,
+        0.0
+      ],
+      "selection_score_pct": -0.849687063988
+    },
+    {
+      "pair": [
+        8,
+        20
+      ],
+      "fold_returns_pct": [
+        -1.62133,
+        -1.42569,
+        0.0
+      ],
+      "selection_score_pct": -3.023904860323
+    }
+  ],
+  "selected_pair": [
+    3,
+    7
+  ],
+  "selection_rule": "Highest compounded validation-fold return at 0.1% per side; final test is not consulted",
+  "final_test_scenarios": [
+    {
+      "fee_per_side": "0",
+      "pair": [
+        3,
+        7
+      ],
+      "range": [
+        62,
+        92
+      ],
+      "ending_equity": "100000.00",
+      "return_pct": 0.0,
+      "max_drawdown_pct": 0.0,
+      "round_trips": 0,
+      "total_fees": "0",
+      "ledger": [],
+      "curve": [
+        {
+          "index": 62,
+          "date": "2026-08-26",
+          "equity": "100000.00"
+        },
+        {
+          "index": 63,
+          "date": "2026-08-27",
+          "equity": "100000.00"
+        },
+        {
+          "index": 64,
+          "date": "2026-08-28",
+          "equity": "100000.00"
+        },
+        {
+          "index": 65,
+          "date": "2026-08-31",
+          "equity": "100000.00"
+        },
+        {
+          "index": 66,
+          "date": "2026-09-01",
+          "equity": "100000.00"
+        },
+        {
+          "index": 67,
+          "date": "2026-09-02",
+          "equity": "100000.00"
+        },
+        {
+          "index": 68,
+          "date": "2026-09-03",
+          "equity": "100000.00"
+        },
+        {
+          "index": 69,
+          "date": "2026-09-04",
+          "equity": "100000.00"
+        },
+        {
+          "index": 70,
+          "date": "2026-09-07",
+          "equity": "100000.00"
+        },
+        {
+          "index": 71,
+          "date": "2026-09-08",
+          "equity": "100000.00"
+        },
+        {
+          "index": 72,
+          "date": "2026-09-09",
+          "equity": "100000.00"
+        },
+        {
+          "index": 73,
+          "date": "2026-09-10",
+          "equity": "100000.00"
+        },
+        {
+          "index": 74,
+          "date": "2026-09-11",
+          "equity": "100000.00"
+        },
+        {
+          "index": 75,
+          "date": "2026-09-14",
+          "equity": "100000.00"
+        },
+        {
+          "index": 76,
+          "date": "2026-09-15",
+          "equity": "100000.00"
+        },
+        {
+          "index": 77,
+          "date": "2026-09-16",
+          "equity": "100000.00"
+        },
+        {
+          "index": 78,
+          "date": "2026-09-17",
+          "equity": "100000.00"
+        },
+        {
+          "index": 79,
+          "date": "2026-09-18",
+          "equity": "100000.00"
+        },
+        {
+          "index": 80,
+          "date": "2026-09-21",
+          "equity": "100000.00"
+        },
+        {
+          "index": 81,
+          "date": "2026-09-22",
+          "equity": "100000.00"
+        },
+        {
+          "index": 82,
+          "date": "2026-09-23",
+          "equity": "100000.00"
+        },
+        {
+          "index": 83,
+          "date": "2026-09-24",
+          "equity": "100000.00"
+        },
+        {
+          "index": 84,
+          "date": "2026-09-25",
+          "equity": "100000.00"
+        },
+        {
+          "index": 85,
+          "date": "2026-09-28",
+          "equity": "100000.00"
+        },
+        {
+          "index": 86,
+          "date": "2026-09-29",
+          "equity": "100000.00"
+        },
+        {
+          "index": 87,
+          "date": "2026-09-30",
+          "equity": "100000.00"
+        },
+        {
+          "index": 88,
+          "date": "2026-10-01",
+          "equity": "100000.00"
+        },
+        {
+          "index": 89,
+          "date": "2026-10-02",
+          "equity": "100000.00"
+        },
+        {
+          "index": 90,
+          "date": "2026-10-05",
+          "equity": "100000.00"
+        },
+        {
+          "index": 91,
+          "date": "2026-10-06",
+          "equity": "100000.00"
+        }
+      ]
+    },
+    {
+      "fee_per_side": "0.001",
+      "pair": [
+        3,
+        7
+      ],
+      "range": [
+        62,
+        92
+      ],
+      "ending_equity": "100000.00",
+      "return_pct": 0.0,
+      "max_drawdown_pct": 0.0,
+      "round_trips": 0,
+      "total_fees": "0",
+      "ledger": [],
+      "curve": [
+        {
+          "index": 62,
+          "date": "2026-08-26",
+          "equity": "100000.00"
+        },
+        {
+          "index": 63,
+          "date": "2026-08-27",
+          "equity": "100000.00"
+        },
+        {
+          "index": 64,
+          "date": "2026-08-28",
+          "equity": "100000.00"
+        },
+        {
+          "index": 65,
+          "date": "2026-08-31",
+          "equity": "100000.00"
+        },
+        {
+          "index": 66,
+          "date": "2026-09-01",
+          "equity": "100000.00"
+        },
+        {
+          "index": 67,
+          "date": "2026-09-02",
+          "equity": "100000.00"
+        },
+        {
+          "index": 68,
+          "date": "2026-09-03",
+          "equity": "100000.00"
+        },
+        {
+          "index": 69,
+          "date": "2026-09-04",
+          "equity": "100000.00"
+        },
+        {
+          "index": 70,
+          "date": "2026-09-07",
+          "equity": "100000.00"
+        },
+        {
+          "index": 71,
+          "date": "2026-09-08",
+          "equity": "100000.00"
+        },
+        {
+          "index": 72,
+          "date": "2026-09-09",
+          "equity": "100000.00"
+        },
+        {
+          "index": 73,
+          "date": "2026-09-10",
+          "equity": "100000.00"
+        },
+        {
+          "index": 74,
+          "date": "2026-09-11",
+          "equity": "100000.00"
+        },
+        {
+          "index": 75,
+          "date": "2026-09-14",
+          "equity": "100000.00"
+        },
+        {
+          "index": 76,
+          "date": "2026-09-15",
+          "equity": "100000.00"
+        },
+        {
+          "index": 77,
+          "date": "2026-09-16",
+          "equity": "100000.00"
+        },
+        {
+          "index": 78,
+          "date": "2026-09-17",
+          "equity": "100000.00"
+        },
+        {
+          "index": 79,
+          "date": "2026-09-18",
+          "equity": "100000.00"
+        },
+        {
+          "index": 80,
+          "date": "2026-09-21",
+          "equity": "100000.00"
+        },
+        {
+          "index": 81,
+          "date": "2026-09-22",
+          "equity": "100000.00"
+        },
+        {
+          "index": 82,
+          "date": "2026-09-23",
+          "equity": "100000.00"
+        },
+        {
+          "index": 83,
+          "date": "2026-09-24",
+          "equity": "100000.00"
+        },
+        {
+          "index": 84,
+          "date": "2026-09-25",
+          "equity": "100000.00"
+        },
+        {
+          "index": 85,
+          "date": "2026-09-28",
+          "equity": "100000.00"
+        },
+        {
+          "index": 86,
+          "date": "2026-09-29",
+          "equity": "100000.00"
+        },
+        {
+          "index": 87,
+          "date": "2026-09-30",
+          "equity": "100000.00"
+        },
+        {
+          "index": 88,
+          "date": "2026-10-01",
+          "equity": "100000.00"
+        },
+        {
+          "index": 89,
+          "date": "2026-10-02",
+          "equity": "100000.00"
+        },
+        {
+          "index": 90,
+          "date": "2026-10-05",
+          "equity": "100000.00"
+        },
+        {
+          "index": 91,
+          "date": "2026-10-06",
+          "equity": "100000.00"
+        }
+      ]
+    },
+    {
+      "fee_per_side": "0.003",
+      "pair": [
+        3,
+        7
+      ],
+      "range": [
+        62,
+        92
+      ],
+      "ending_equity": "100000.00",
+      "return_pct": 0.0,
+      "max_drawdown_pct": 0.0,
+      "round_trips": 0,
+      "total_fees": "0",
+      "ledger": [],
+      "curve": [
+        {
+          "index": 62,
+          "date": "2026-08-26",
+          "equity": "100000.00"
+        },
+        {
+          "index": 63,
+          "date": "2026-08-27",
+          "equity": "100000.00"
+        },
+        {
+          "index": 64,
+          "date": "2026-08-28",
+          "equity": "100000.00"
+        },
+        {
+          "index": 65,
+          "date": "2026-08-31",
+          "equity": "100000.00"
+        },
+        {
+          "index": 66,
+          "date": "2026-09-01",
+          "equity": "100000.00"
+        },
+        {
+          "index": 67,
+          "date": "2026-09-02",
+          "equity": "100000.00"
+        },
+        {
+          "index": 68,
+          "date": "2026-09-03",
+          "equity": "100000.00"
+        },
+        {
+          "index": 69,
+          "date": "2026-09-04",
+          "equity": "100000.00"
+        },
+        {
+          "index": 70,
+          "date": "2026-09-07",
+          "equity": "100000.00"
+        },
+        {
+          "index": 71,
+          "date": "2026-09-08",
+          "equity": "100000.00"
+        },
+        {
+          "index": 72,
+          "date": "2026-09-09",
+          "equity": "100000.00"
+        },
+        {
+          "index": 73,
+          "date": "2026-09-10",
+          "equity": "100000.00"
+        },
+        {
+          "index": 74,
+          "date": "2026-09-11",
+          "equity": "100000.00"
+        },
+        {
+          "index": 75,
+          "date": "2026-09-14",
+          "equity": "100000.00"
+        },
+        {
+          "index": 76,
+          "date": "2026-09-15",
+          "equity": "100000.00"
+        },
+        {
+          "index": 77,
+          "date": "2026-09-16",
+          "equity": "100000.00"
+        },
+        {
+          "index": 78,
+          "date": "2026-09-17",
+          "equity": "100000.00"
+        },
+        {
+          "index": 79,
+          "date": "2026-09-18",
+          "equity": "100000.00"
+        },
+        {
+          "index": 80,
+          "date": "2026-09-21",
+          "equity": "100000.00"
+        },
+        {
+          "index": 81,
+          "date": "2026-09-22",
+          "equity": "100000.00"
+        },
+        {
+          "index": 82,
+          "date": "2026-09-23",
+          "equity": "100000.00"
+        },
+        {
+          "index": 83,
+          "date": "2026-09-24",
+          "equity": "100000.00"
+        },
+        {
+          "index": 84,
+          "date": "2026-09-25",
+          "equity": "100000.00"
+        },
+        {
+          "index": 85,
+          "date": "2026-09-28",
+          "equity": "100000.00"
+        },
+        {
+          "index": 86,
+          "date": "2026-09-29",
+          "equity": "100000.00"
+        },
+        {
+          "index": 87,
+          "date": "2026-09-30",
+          "equity": "100000.00"
+        },
+        {
+          "index": 88,
+          "date": "2026-10-01",
+          "equity": "100000.00"
+        },
+        {
+          "index": 89,
+          "date": "2026-10-02",
+          "equity": "100000.00"
+        },
+        {
+          "index": 90,
+          "date": "2026-10-05",
+          "equity": "100000.00"
+        },
+        {
+          "index": 91,
+          "date": "2026-10-06",
+          "equity": "100000.00"
+        }
+      ]
+    }
+  ],
+  "execution": "Prior-close SMA decides next-open entry; every position exits same bar close; integer units; fees ROUND_HALF_UP to cents.",
+  "not_modelled": [
+    "tax",
+    "minimum commission",
+    "slippage",
+    "partial fills",
+    "price limits",
+    "dividends",
+    "actual calendar"
+  ],
+  "model_calls": 0
+}
